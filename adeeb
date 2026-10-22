@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الجانودي أوتلت | Al-Janoudi Outlet - أحذية أوروبية أصلية</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Cairo & Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#D4AF37',
+                            goldHover: '#B89628',
+                            dark: '#0F172A',
+                            card: '#1E293B',
+                            accent: '#10B981'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF5C0 0%, #D4AF37 50%, #AA7C11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-brand-gold selection:text-slate-900">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-950 text-xs sm:text-sm font-bold py-2 px-3 text-center shadow-lg flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-red-600 animate-ping"></span>
+        <span>📍 اللاذقية - الصليبة - مقابل مدرسة العفاف | 🚚 يوجد شحن مسبق الدفع لجميع المحافظات</span>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-2">
+            <!-- Brand Logo / Title -->
+            <div class="flex items-center gap-3 cursor-pointer" onclick="resetFilters()">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-tr from-amber-500 via-amber-300 to-amber-600 p-0.5 shadow-md flex items-center justify-center">
+                    <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
+                        <i class="fa-solid font-bold text-amber-400 text-lg sm:text-xl">AJ</i>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-base sm:text-xl leading-tight tracking-wide gold-gradient-text">الجانودي أوتلت</h1>
+                    <p class="text-[10px] sm:text-xs text-slate-400 font-medium">Al-Janoudi Outlet | أحذية أوروبية أصلية 100% 🇪🇺</p>
+                </div>
+            </div>
+
+            <!-- Cart Trigger & Direct Contact Button -->
+            <div class="flex items-center gap-2">
+                <button onclick="openCartModal()" class="relative bg-slate-800 hover:bg-slate-700 text-amber-400 border border-slate-700 p-2.5 rounded-xl transition flex items-center gap-2 text-sm font-bold">
+                    <i class="fa-solid fa-cart-shopping text-lg"></i>
+                    <span class="hidden sm:inline">السلة</span>
+                    <span id="cart-count" class="bg-amber-500 text-slate-950 text-xs font-black w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                </button>
+                <a href="https://wa.me/963981057508" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-2.5 rounded-xl transition text-xs sm:text-sm font-bold flex items-center gap-1.5 shadow-md">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span class="hidden md:inline">0981057508</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner & Trust Badges -->
+    <section class="bg-gradient-to-b from-slate-900 to-slate-950 py-6 px-4 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto text-center">
+            <span class="inline-block bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                🏷️ جديد بالكامل بالتيكت الأصلي (NWT - New With Tags)
+            </span>
+            <h2 class="text-2xl sm:text-4xl font-black mb-2 text-slate-100">تشكيلة الأحذية الأوروبية الحصرية</h2>
+            <p class="text-xs sm:text-sm text-slate-400 max-w-2xl mx-auto mb-6">تصفح القطع المتوفرة، اختر مقاسك بدقة، واطلب فوراً عبر الواتساب مع خيارات الدفع المحلية السهلة (الشام كاش / الهرم).</p>
+
+            <!-- Quick Trust Pills -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 max-w-4xl mx-auto text-xs">
+                <div class="bg-slate-900/80 border border-slate-800 p-2.5 rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-certificate text-amber-400 text-base"></i>
+                    <span class="font-bold">أصلي 100% مع التيكت</span>
+                </div>
+                <div class="bg-slate-900/80 border border-slate-800 p-2.5 rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-truck-fast text-amber-400 text-base"></i>
+                    <span class="font-bold">شحن لكافة المحافظات</span>
+                </div>
+                <div class="bg-slate-900/80 border border-slate-800 p-2.5 rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-wallet text-amber-400 text-base"></i>
+                    <span class="font-bold">شام كاش & الهرم</span>
+                </div>
+                <div class="bg-slate-900/80 border border-slate-800 p-2.5 rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-store text-amber-400 text-base"></i>
+                    <span class="font-bold">استلام مباشر من المحل</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section (Brands & Sizes) -->
+    <section class="max-w-7xl mx-auto px-4 pt-6 pb-2 w-full">
+        <!-- Search & Filter Controls -->
+        <div class="space-y-4">
+            <!-- Brand Filters -->
+            <div>
+                <label class="block text-xs font-bold text-slate-400 mb-2">تصفح حسب الماركة العالمية:</label>
+                <div class="flex gap-2 overflow-x-auto pb-2 hide-scrollbar text-xs font-bold" id="brand-filters">
+                    <!-- Dynamic Brand Buttons populated by JS -->
+                </div>
+            </div>
+
+            <!-- Size & Keyword Search Row -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-center">
+                <!-- Size Filters -->
+                <div class="sm:col-span-2">
+                    <label class="block text-xs font-bold text-slate-400 mb-2">اختر نمرتك / مقاسك المحدد:</label>
+                    <div class="flex gap-1.5 overflow-x-auto pb-2 hide-scrollbar text-xs font-bold" id="size-filters">
+                        <!-- Dynamic Size Buttons populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Search Input -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 mb-2">بحث بالاسم أو الخاصية:</label>
+                    <div class="relative">
+                        <input type="text" id="search-input" oninput="applyFilters()" placeholder="ابحث عن: Waterproof, Boost..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-400">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-500 text-xs"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Reset & Counter Bar -->
+        <div class="flex items-center justify-between mt-4 text-xs text-slate-400 border-t border-slate-800/60 pt-3">
+            <span>النتائج المعروضة: <strong id="result-count" class="text-amber-400 font-bold">0</strong> قطعة متوفرة</span>
+            <button onclick="resetFilters()" class="text-slate-400 hover:text-amber-400 underline transition">إعادة ضبط الفلاتر</button>
+        </div>
+    </section>
+
+    <!-- Product Catalog Grid -->
+    <main class="max-w-7xl mx-auto px-4 py-6 w-full flex-1">
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            <!-- Product Cards Populated via JS -->
+        </div>
+
+        <!-- No Results Placeholder -->
+        <div id="no-results" class="hidden text-center py-12 bg-slate-900/50 rounded-2xl border border-slate-800">
+            <i class="fa-solid fa-box-open text-4xl text-slate-600 mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-300">لم نجد أي قطعة تطابق خياراتك!</h3>
+            <p class="text-xs text-slate-500 mb-4">جرب اختيار مقاس آخر أو إلغاء تصفية الماركة.</p>
+            <button onclick="resetFilters()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold px-4 py-2 rounded-xl transition">إظهار جميع القطع</button>
+        </div>
+    </main>
+
+    <!-- Payment Methods & Location Footer Info Section -->
+    <section class="bg-slate-900 border-t border-slate-800 py-8 px-4 mt-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+            
+            <!-- Shipping & Location -->
+            <div class="space-y-2">
+                <h4 class="font-extrabold text-amber-400 flex items-center gap-2 text-base">
+                    <i class="fa-solid fa-location-dot"></i> موقع المحل والشحن
+                </h4>
+                <p class="text-slate-300 text-xs leading-relaxed">
+                    📍 <strong>العنوان:</strong> اللاذقية - الصليبة - مقابل مدرسة العفاف.<br>
+                    🚚 <strong>الشحن:</strong> يتوفر شحن سريـع ومضمون لجميع المحافظات (دمشق، حلب، حمص، حماة، طرطوس، والسويداء...).
+                </p>
+            </div>
+
+            <!-- Payment Options -->
+            <div class="space-y-2">
+                <h4 class="font-extrabold text-amber-400 flex items-center gap-2 text-base">
+                    <i class="fa-solid fa-credit-card"></i> طرق الدفع المقبولة
+                </h4>
+                <ul class="text-slate-300 text-xs space-y-1.5">
+                    <li class="flex items-center gap-2">
+                        <i class="fa-solid fa-mobile-screen-button text-emerald-400"></i>
+                        <span><strong>الشام كاش (Sham Cash):</strong> تحويل سريع ومباشر.</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fa-solid fa-money-bill-transfer text-amber-400"></i>
+                        <span><strong>مكاتب التحويل:</strong> (الهرم / الفؤاد / الفاضل).</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Authentic Stamp & Contact -->
+            <div class="space-y-2">
+                <h4 class="font-extrabold text-amber-400 flex items-center gap-2 text-base">
+                    <i class="fa-solid fa-shield-halved"></i> ضمان الأصالة 100%
+                </h4>
+                <p class="text-slate-300 text-xs leading-relaxed">
+                    جميع المنتجات في محل الجانودي أوتلت هي أحذية جديدة بالكامل مع التيكت والتاغ الأصلي (NWT) مستوردة من أوروبا 🇪🇺.
+                </p>
+                <div class="pt-2">
+                    <a href="https://wa.me/963981057508" target="_blank" class="inline-flex items-center gap-2 text-emerald-400 text-xs font-bold hover:underline">
+                        <i class="fa-brands fa-whatsapp text-base"></i> تواصل معنا للتأكد من أي نمرة: 0981057508
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Copyright -->
+    <footer class="bg-slate-950 py-4 border-t border-slate-800/60 text-center text-xs text-slate-500">
+        <p>© 2026 الجانودي أوتلت (Al-Janoudi Outlet). جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
+            
+            <!-- Cart Header -->
+            <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-950">
+                <h3 class="font-extrabold text-slate-100 flex items-center gap-2">
+                    <i class="fa-solid fa-cart-shopping text-amber-400"></i> سلة طلباتك من الجانودي أوتلت
+                </h3>
+                <button onclick="closeCartModal()" class="text-slate-400 hover:text-white text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Cart Items List -->
+            <div id="cart-items" class="p-4 overflow-y-auto flex-1 space-y-3">
+                <!-- Cart items populated by JS -->
+            </div>
+
+            <!-- Cart Footer & Send Order Action -->
+            <div class="p-4 border-t border-slate-800 bg-slate-950 space-y-3">
+                <div class="flex items-center justify-between text-sm font-bold text-slate-200">
+                    <span>المجموع التقديري:</span>
+                    <span id="cart-total" class="text-amber-400 font-extrabold">0 ل.س</span>
+                </div>
+                <div class="text-[11px] text-slate-400 bg-slate-900 p-2 rounded-lg border border-slate-800">
+                    💡 **ملاحظة:** الضغط على الزر أدناه سيقوم بإرسال قائمة القطع المختارة بمقاساتها مباشرة إلى واتساب المحل لتأكيد المتوفر وحجزها.
+                </div>
+                <button onclick="sendCartToWhatsApp()" id="send-cart-btn" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>إرسال الطلب وحجزه عبر الواتساب</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript Data & Logic -->
+    <script>
+        // Sample Real Data for Al-Janoudi Outlet European Shoes Catalog
+        const productsData = [
+            {
+                id: 1,
+                name: "Nike Real Black/Gold Special",
+                brand: "Nike",
+                sizes: [41, 42, 42.5, 43],
+                price: 520000,
+                priceFormatted: "520,000",
+                tag: "أصلي 100% 🇪🇺",
+                features: ["NWT جديدة بالتيكت", "شعار ذهبي مميز", "راحة وجيم"],
+                image: "https://placehold.co/600x600/1e293b/d4af37?text=Nike+Black+Gold"
+            },
+            {
+                id: 2,
+                name: "Puma x Care Of Medical Comfort",
+                brand: "Puma",
+                sizes: [40.5, 41, 42, 43, 45],
+                price: 480000,
+                priceFormatted: "480,000",
+                tag: "أصلي 100% 🇪🇺",
+                features: ["سبور شيك شامواه", "نعل طبي أبيض", "راحة للمشي"],
+                image: "https://placehold.co/600x600/1e293b/38bdf8?text=Puma+Care+Of"
+            },
+            {
+                id: 3,
+                name: "Skechers Waterproof Edition",
+                brand: "Skechers",
+                sizes: [42.5],
+                price: 510000,
+                priceFormatted: "510,000",
+                tag: "مع علبتها الأصلية 📦",
+                features: ["Waterproof للماء والثلج", "27.5 cm", "قطعة واحدة حصرية"],
+                image: "https://placehold.co/600x600/1e293b/10b981?text=Skechers+Waterproof"
+            },
+            {
+                id: 4,
+                name: "Adidas Ultraboost NWT Europe",
+                brand: "Adidas",
+                sizes: [41, 42, 43, 44],
+                price: 550000,
+                priceFormatted: "550,000",
+                tag: "أصلي 100% 🇪🇺",
+                features: ["تقنية Boost المرنة", "ART Code مفحوص", "جديد بالتاغ"],
+                image: "https://placehold.co/600x600/1e293b/f59e0b?text=Adidas+Ultraboost"
+            },
+            {
+                id: 5,
+                name: "Salomon Speedcross Outdoor",
+                brand: "Salomon",
+                sizes: [42, 43, 44, 45],
+                price: 580000,
+                priceFormatted: "580,000",
+                tag: "أصلي 100% 🇪🇺",
+                features: ["مقاوم للتضاريس", "ثبات عالي", "تشكيلة شتوية"],
+                image: "https://placehold.co/600x600/1e293b/ef4444?text=Salomon+Outdoor"
+            },
+            {
+                id: 6,
+                name: "New Balance 574 Heritage",
+                brand: "New Balance",
+                sizes: [39, 40, 41, 42],
+                price: 490000,
+                priceFormatted: "490,000",
+                tag: "أصلي 100% 🇪🇺",
+                features: ["كلاسيك يومي", "راحة فائقة", "جديد بالكامل"],
+                image: "https://placehold.co/600x600/1e293b/a855f7?text=New+Balance+574"
+            },
+            {
+                id: 7,
+                name: "Reebok Classic Leather Pro",
+                brand: "Reebok",
+                sizes: [40, 41, 42.5],
+                price: 440000,
+                priceFormatted: "440,000",
+                tag: "أصلي 100% 🇪🇺",
+                features: ["جلد طبيعي", "نعل متين", "ستايل عصري"],
+                image: "https://placehold.co/600x600/1e293b/64748b?text=Reebok+Classic"
+            },
+            {
+                id: 8,
+                name: "Nike Zoom Pegasus Running",
+                brand: "Nike",
+                sizes: [41, 42, 43],
+                price: 530000,
+                priceFormatted: "530,000",
+                tag: "أصلي 100% 🇪🇺",
+                features: ["خفيف للركض والجيم", "تهوية ممتازة", "NWT"],
+                image: "https://placehold.co/600x600/1e293b/ec4899?text=Nike+Zoom+Pegasus"
+            }
+        ];
+
+        const brandsList = ["الكل", "Nike", "Adidas", "Puma", "Skechers", "Salomon", "New Balance", "Reebok"];
+        const sizesList = ["الكل", 39, 40, 40.5, 41, 42, 42.5, 43, 44, 45];
+
+        let activeBrand = "الكل";
+        let activeSize = "الكل";
+        let cart = [];
+
+        // App Initialization
+        window.onload = function() {
+            renderBrandFilters();
+            renderSizeFilters();
+            applyFilters();
+        };
+
+        // Render Brand Filter Buttons
+        function renderBrandFilters() {
+            const container = document.getElementById('brand-filters');
+            container.innerHTML = brandsList.map(brand => {
+                const isActive = activeBrand === brand;
+                const activeClasses = isActive ? 'bg-amber-500 text-slate-950 font-black shadow' : 'bg-slate-900 text-slate-300 border border-slate-800 hover:border-amber-400';
+                return `<button onclick="setBrand('${brand}')" class="px-4 py-2 rounded-xl whitespace-nowrap transition ${activeClasses}">${brand}</button>`;
+            }).join('');
+        }
+
+        // Render Size Filter Buttons
+        function renderSizeFilters() {
+            const container = document.getElementById('size-filters');
+            container.innerHTML = sizesList.map(size => {
+                const isActive = activeSize === size;
+                const activeClasses = isActive ? 'bg-amber-500 text-slate-950 font-black shadow' : 'bg-slate-900 text-slate-300 border border-slate-800 hover:border-amber-400';
+                return `<button onclick="setSize('${size}')" class="px-3 py-1.5 rounded-lg whitespace-nowrap transition ${activeClasses}">${size === 'الكل' ? 'جميع المقاسات' : 'مقاس ' + size}</button>`;
+            }).join('');
+        }
+
+        function setBrand(brand) {
+            activeBrand = brand;
+            renderBrandFilters();
+            applyFilters();
+        }
+
+        function setSize(size) {
+            activeSize = size === 'الكل' ? 'الكل' : parseFloat(size);
+            renderSizeFilters();
+            applyFilters();
+        }
+
+        function resetFilters() {
+            activeBrand = "الكل";
+            activeSize = "الكل";
+            document.getElementById('search-input').value = "";
+            renderBrandFilters();
+            renderSizeFilters();
+            applyFilters();
+        }
+
+        // Filter Products Engine
+        function applyFilters() {
+            const searchVal = document.getElementById('search-input').value.toLowerCase().trim();
+            
+            const filtered = productsData.filter(product => {
+                const matchesBrand = (activeBrand === "الكل") || (product.brand.toLowerCase() === activeBrand.toLowerCase());
+                const matchesSize = (activeSize === "الكل") || (product.sizes.includes(activeSize));
+                const matchesSearch = searchVal === "" || 
+                    product.name.toLowerCase().includes(searchVal) || 
+                    product.brand.toLowerCase().includes(searchVal) ||
+                    product.features.some(f => f.toLowerCase().includes(searchVal));
+
+                return matchesBrand && matchesSize && matchesSearch;
+            });
+
+            renderProducts(filtered);
+            document.getElementById('result-count').innerText = filtered.length;
+        }
+
+        // Render Product Cards
+        function renderProducts(products) {
+            const grid = document.getElementById('product-grid');
+            const noResults = document.getElementById('no-results');
+
+            if (products.length === 0) {
+                grid.innerHTML = "";
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+            grid.innerHTML = products.map(product => {
+                const sizeBadges = product.sizes.map(s => 
+                    `<span class="bg-slate-800 text-slate-300 text-[10px] font-semibold px-2 py-0.5 rounded border border-slate-700">${s}</span>`
+                ).join('');
+
+                const featurePills = product.features.map(f => 
+                    `<span class="text-[10px] text-amber-300 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20">✓ ${f}</span>`
+                ).join(' ');
+
+                return `
+                <div class="bg-slate-900 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition duration-300 overflow-hidden flex flex-col justify-between group shadow-lg">
+                    <div>
+                        <!-- Image Container -->
+                        <div class="relative overflow-hidden bg-slate-950 aspect-square">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 right-3 bg-slate-950/90 text-amber-400 text-[11px] font-bold px-2.5 py-1 rounded-full border border-amber-500/30 backdrop-blur-sm">
+                                ${product.tag}
+                            </span>
+                        </div>
+
+                        <!-- Card Content -->
+                        <div class="p-4 space-y-2">
+                            <div class="text-[11px] font-bold text-amber-400 uppercase tracking-wider">${product.brand}</div>
+                            <h3 class="font-extrabold text-slate-100 text-base leading-snug">${product.name}</h3>
+                            
+                            <!-- Features -->
+                            <div class="flex flex-wrap gap-1 pt-1">
+                                ${featurePills}
+                            </div>
+
+                            <!-- Sizes -->
+                            <div class="pt-2">
+                                <span class="text-[11px] text-slate-400 block mb-1 font-bold">المقاسات المتوفرة:</span>
+                                <div class="flex flex-wrap gap-1">
+                                    ${sizeBadges}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Price & Action Footer -->
+                    <div class="p-4 border-t border-slate-800/80 bg-slate-950/50 space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-slate-400 font-bold">السعر:</span>
+                            <span class="text-lg font-black text-amber-400">${product.priceFormatted} <span class="text-xs font-normal text-slate-400">ل.س</span></span>
+                        </div>
+
+                        <!-- Quick Action Buttons -->
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="directWhatsAppOrder(${product.id})" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-2 rounded-xl transition text-xs flex items-center justify-center gap-1">
+                                <i class="fa-brands fa-whatsapp text-base"></i>
+                                <span>طلب مباشر</span>
+                            </button>
+                            <button onclick="addToCart(${product.id})" class="bg-slate-800 hover:bg-slate-700 text-amber-400 font-bold py-2 px-2 rounded-xl transition text-xs border border-slate-700 flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-cart-plus text-sm"></i>
+                                <span>أضف للسلة</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        // Direct WhatsApp Single Item Order
+        function directWhatsAppOrder(productId) {
+            const product = productsData.find(p => p.id === productId);
+            if (!product) return;
+
+            const sizesText = product.sizes.join(' / ');
+            const message = `مرحباً الجانودي أوتلت 👋\nحابب استفسر / أحجز حذاء:\n👟 *${product.name}*\n🏷️ *الماركة:* ${product.brand}\n📏 *المقاس المتوفر:* (${sizesText})\n💰 *السعر:* ${product.priceFormatted} ل.س\n\nهل المنتج متوفر حتى ثبت الطلب؟`;
+            
+            const whatsappUrl = `https://wa.me/963981057508?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Cart Management
+        function addToCart(productId) {
+            const product = productsData.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingIndex = cart.findIndex(item => item.id === productId);
+            if (existingIndex > 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push({ ...product, selectedSize: product.sizes[0], quantity: 1 });
+            }
+
+            updateCartUI();
+            openCartModal();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartCountBadge = document.getElementById('cart-count');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalEl = document.getElementById('cart-total');
+
+            cartCountBadge.innerText = cart.length;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="text-center py-8 text-slate-500 text-xs">
+                        <i class="fa-solid fa-basket-shopping text-3xl mb-2"></i>
+                        <p>السلة فارغة حالياً!</p>
+                    </div>
+                `;
+                cartTotalEl.innerText = "0 ل.س";
+                return;
+            }
+
+            let total = 0;
+            cartItemsContainer.innerHTML = cart.map((item, index) => {
+                total += item.price * item.quantity;
+                return `
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 flex items-center justify-between gap-3 text-xs">
+                        <div class="flex items-center gap-3">
+                            <img src="${item.image}" class="w-12 h-12 rounded-lg object-cover bg-slate-900">
+                            <div>
+                                <h4 class="font-extrabold text-slate-200">${item.name}</h4>
+                                <div class="text-amber-400 font-bold">${item.priceFormatted} ل.س</div>
+                                <div class="text-[10px] text-slate-400 mt-0.5">
+                                    المقاس المطلوب: 
+                                    <select onchange="updateCartSize(${index}, this.value)" class="bg-slate-900 text-amber-300 border border-slate-700 rounded px-1 py-0.5 text-[10px]">
+                                        ${item.sizes.map(s => `<option value="${s}" ${s === item.selectedSize ? 'selected' : ''}>${s}</option>`).join('')}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="text-red-400 hover:text-red-300 p-2">
+                            <i class="fa-solid fa-trash-can text-sm"></i>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+
+            cartTotalEl.innerText = total.toLocaleString() + " ل.س";
+        }
+
+        function updateCartSize(index, newSize) {
+            if (cart[index]) {
+                cart[index].selectedSize = parseFloat(newSize);
+            }
+        }
+
+        function openCartModal() {
+            document.getElementById('cart-modal').classList.remove('hidden');
+        }
+
+        function closeCartModal() {
+            document.getElementById('cart-modal').classList.add('hidden');
+        }
+
+        // Send Entire Cart to WhatsApp
+        function sendCartToWhatsApp() {
+            if (cart.length === 0) {
+                alert("السلة فارغة! يرجى إضافة قطع أولاً.");
+                return;
+            }
+
+            let itemsListText = "";
+            let totalPrice = 0;
+
+            cart.forEach((item, i) => {
+                totalPrice += item.price * item.quantity;
+                itemsListText += `${i + 1}. *${item.name}* - مقاس: [${item.selectedSize}] - السعر: ${item.priceFormatted} ل.س\n`;
+            });
+
+            const message = `مرحباً الجانودي أوتلت 👋\nحابب اطلب القائمة التالية من الأحذية:\n\n${itemsListText}\n💰 *المجموع التقديري:* ${totalPrice.toLocaleString()} ل.س\n\n📌 *خيارات الشحن والدفع:* (شام كاش / الهرم)\nيرجى تأكيد المتوفر من المقاسات لتثبيت الحجز.`;
+
+            const whatsappUrl = `https://wa.me/963981057508?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
