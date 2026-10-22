@@ -3,148 +3,192 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Al-Janoudi Outlet - الجانودي أوتلت</title>
+  <title>الجانودي أوتلت | Al-Janoudi Outlet</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+    body { font-family: 'Tajawal', sans-serif; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans pb-20">
+<body class="bg-neutral-950 text-white min-h-screen pb-20 selection:bg-amber-500 selection:text-black">
 
   <!-- Header -->
-  <header class="bg-black text-white p-4 sticky top-0 z-50 flex justify-between items-center shadow-lg">
-    <div>
-      <h1 class="text-xl font-bold tracking-wider">AL-JANOUDI OUTLET</h1>
-      <p class="text-xs text-gray-400">اللاذقية - الصليبة | أحذية أصلية 100%</p>
+  <header class="bg-black/90 backdrop-blur-md border-b border-neutral-800 sticky top-0 z-40 px-4 py-3">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center font-extrabold text-black text-xl shadow-lg shadow-amber-500/20">
+          JO
+        </div>
+        <div>
+          <h1 class="text-lg font-black tracking-wider text-white">الجانودي أوتلت</h1>
+          <p class="text-[10px] text-gray-400">اللاذقية - الصليبة | ماركات أوروبية أصلية</p>
+        </div>
+      </div>
+      
+      <button id="adminLoginBtn" onclick="toggleAdminModal()" class="bg-neutral-900 hover:bg-neutral-800 text-amber-500 border border-neutral-800 text-xs px-3 py-2 rounded-xl transition flex items-center gap-2">
+        <i class="fa-solid fa-user-shield"></i>
+        <span>دخول الأدمن</span>
+      </button>
     </div>
-    <button id="adminLoginBtn" onclick="toggleAdminModal()" class="bg-neutral-800 hover:bg-neutral-700 text-xs px-3 py-2 rounded-lg border border-neutral-700">
-      <i class="fa-solid fa-user-shield ml-1"></i> دخول الأدمن
-    </button>
   </header>
 
-  <!-- Admin Toolbar (Visble only when logged in) -->
-  <div id="adminPanel" class="hidden bg-amber-500 text-black p-3 font-semibold flex justify-between items-center px-4 shadow-md">
-    <span><i class="fa-solid fa-lock-open ml-2"></i> وضع الأدمن مفعّل (الصلاحيات الكاملة)</span>
-    <div class="space-x-2 space-x-reverse">
-      <button onclick="openAddProductModal()" class="bg-black text-white text-xs px-3 py-1.5 rounded hover:bg-gray-800">
-        <i class="fa-solid fa-plus ml-1"></i> إضافة منتج جديد
-      </button>
-      <button onclick="logoutAdmin()" class="bg-red-700 text-white text-xs px-2 py-1.5 rounded">خروج</button>
-    </div>
-  </div>
-
-  <!-- Main Content Container -->
-  <main class="max-w-4xl mx-auto p-4">
-    
-    <!-- Brand Filter Header -->
-    <div class="mb-6 overflow-x-auto whitespace-nowrap pb-2 flex gap-2">
-      <button onclick="filterBrand('ALL')" class="bg-black text-white px-4 py-1.5 rounded-full text-sm">الكل</button>
-      <button onclick="filterBrand('Nike')" class="bg-white border px-4 py-1.5 rounded-full text-sm">Nike</button>
-      <button onclick="filterBrand('Adidas')" class="bg-white border px-4 py-1.5 rounded-full text-sm">Adidas</button>
-      <button onclick="filterBrand('Puma')" class="bg-white border px-4 py-1.5 rounded-full text-sm">Puma</button>
-      <button onclick="filterBrand('Asics')" class="bg-white border px-4 py-1.5 rounded-full text-sm">Asics</button>
-    </div>
-
-    <!-- Product Grid -->
-    <div id="productsGrid" class="grid grid-cols-2 md:grid-cols-3 gap-4">
-      <!-- المنتجات تظهر هنا تلقائياً -->
-    </div>
-  </main>
-
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/963981057508" target="_blank" class="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition flex items-center justify-center z-50">
-    <i class="fa-brands fa-whatsapp text-3xl"></i>
-  </a>
-
-  <!-- Modal: Admin Password Login -->
-  <div id="loginModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50 p-4">
-    <div class="bg-white rounded-xl p-6 w-full max-w-md shadow-2xl">
-      <h3 class="text-lg font-bold mb-4 text-center">تسجيل دخول الأدمن</h3>
-      <input type="password" id="adminPassword" placeholder="أدخل كلمة السر (افتراضي 123456)" class="w-full border p-2 rounded mb-4 text-center">
+  <!-- Admin Control Bar (يظهر فقط بعد تسجيل الدخول) -->
+  <div id="adminPanel" class="hidden bg-amber-500 text-black px-4 py-2.5 font-bold text-sm shadow-xl sticky top-[61px] z-30">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-unlock-keyhole"></i>
+        <span>وضع الأدمن مفعّل (تحكم كامل بالمنتجات والأسعار)</span>
+      </div>
       <div class="flex gap-2">
-        <button onclick="loginAdmin()" class="bg-black text-white w-full py-2 rounded">دخول</button>
-        <button onclick="toggleAdminModal()" class="bg-gray-200 w-full py-2 rounded">إلغاء</button>
+        <button onclick="openAddProductModal()" class="bg-black text-white hover:bg-neutral-800 text-xs px-3 py-1.5 rounded-lg transition">
+          <i class="fa-solid fa-plus ml-1"></i> إضافة حذاء جديد
+        </button>
+        <button onclick="logoutAdmin()" class="bg-red-700 hover:bg-red-800 text-white text-xs px-2.5 py-1.5 rounded-lg transition">
+          خروج
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- Modal: Add / Edit Product -->
-  <div id="productModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50 p-4 overflow-y-auto">
-    <div class="bg-white rounded-xl p-6 w-full max-w-md shadow-2xl my-8">
-      <h3 id="modalTitle" class="text-lg font-bold mb-4">إضافة حذاء جديد</h3>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-neutral-900 to-neutral-950 border-b border-neutral-800/60 py-8 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <span class="bg-amber-500/10 text-amber-500 border border-amber-500/20 text-xs px-3 py-1 rounded-full font-bold">تشكيلة أصلية 100%</span>
+      <h2 class="text-2xl md:text-4xl font-extrabold mt-3 text-white">أفخم تشكيلة أحذية أوروبية وحصرية</h2>
+      <p class="text-xs md:text-sm text-gray-400 mt-2">اختر شوك المناسب وتواصل معنا فوراً للحجز أو الاستفسار عبر الواتساب</p>
+    </div>
+  </section>
+
+  <!-- Filters & Content Container -->
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    
+    <!-- Filter Brands -->
+    <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-4 mb-2">
+      <button onclick="filterBrand('ALL')" class="brand-btn bg-amber-500 text-black font-bold px-4 py-2 rounded-xl text-xs whitespace-nowrap transition">الكل</button>
+      <button onclick="filterBrand('Nike')" class="brand-btn bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 px-4 py-2 rounded-xl text-xs whitespace-nowrap transition">Nike</button>
+      <button onclick="filterBrand('Adidas')" class="brand-btn bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 px-4 py-2 rounded-xl text-xs whitespace-nowrap transition">Adidas</button>
+      <button onclick="filterBrand('Asics')" class="brand-btn bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 px-4 py-2 rounded-xl text-xs whitespace-nowrap transition">Asics</button>
+      <button onclick="filterBrand('Puma')" class="brand-btn bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 px-4 py-2 rounded-xl text-xs whitespace-nowrap transition">Puma</button>
+      <button onclick="filterBrand('New Balance')" class="brand-btn bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 px-4 py-2 rounded-xl text-xs whitespace-nowrap transition">New Balance</button>
+      <button onclick="filterBrand('HOKA')" class="brand-btn bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 px-4 py-2 rounded-xl text-xs whitespace-nowrap transition">HOKA</button>
+    </div>
+
+    <!-- Products Grid -->
+    <div id="productsGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <!-- المنتجات تُعرض هنا أوتوماتيكياً -->
+    </div>
+  </main>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/963981057508" target="_blank" class="fixed bottom-6 right-6 bg-emerald-500 text-black p-4 rounded-full shadow-2xl shadow-emerald-500/40 hover:bg-emerald-400 transition transform hover:scale-110 z-50 flex items-center justify-center">
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+  </a>
+
+  <!-- Admin Login Modal -->
+  <div id="loginModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+    <div class="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 w-full max-w-sm shadow-2xl">
+      <div class="text-center mb-5">
+        <div class="w-12 h-12 bg-amber-500/10 text-amber-500 rounded-full flex items-center justify-center mx-auto mb-2 text-xl">
+          <i class="fa-solid fa-lock"></i>
+        </div>
+        <h3 class="text-base font-bold text-white">تسجيل دخول الأدمن</h3>
+        <p class="text-xs text-gray-400 mt-1">أدخل كلمة المرور للتحكم بالمنتجات والأسعار</p>
+      </div>
+      <input type="password" id="adminPassword" placeholder="كلمة السر (الافتراضية: 123456)" class="w-full bg-neutral-950 border border-neutral-800 text-white p-3 rounded-xl mb-4 text-center text-sm focus:outline-none focus:border-amber-500">
+      <div class="flex gap-2">
+        <button onclick="loginAdmin()" class="bg-amber-500 hover:bg-amber-400 text-black font-bold w-full py-2.5 rounded-xl transition text-sm">دخول</button>
+        <button onclick="toggleAdminModal()" class="bg-neutral-800 hover:bg-neutral-700 text-white w-full py-2.5 rounded-xl transition text-sm">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add / Edit Product Modal -->
+  <div id="productModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4 overflow-y-auto">
+    <div class="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 w-full max-w-md shadow-2xl my-8">
+      <h3 id="modalTitle" class="text-lg font-bold mb-4 text-white">إضافة حذاء جديد</h3>
       <form id="productForm" onsubmit="saveProduct(event)">
         <input type="hidden" id="prodId">
-        <label class="block text-xs font-bold mb-1">اسم الحذاء:</label>
-        <input type="text" id="prodName" required class="w-full border p-2 rounded mb-3 text-sm">
         
-        <label class="block text-xs font-bold mb-1">الماركة:</label>
-        <select id="prodBrand" class="w-full border p-2 rounded mb-3 text-sm">
+        <label class="block text-xs font-bold text-gray-300 mb-1">اسم الحذاء:</label>
+        <input type="text" id="prodName" required placeholder="مثال: Air Max Plus" class="w-full bg-neutral-950 border border-neutral-800 text-white p-2.5 rounded-xl mb-3 text-sm focus:outline-none focus:border-amber-500">
+        
+        <label class="block text-xs font-bold text-gray-300 mb-1">الماركة:</label>
+        <select id="prodBrand" class="w-full bg-neutral-950 border border-neutral-800 text-white p-2.5 rounded-xl mb-3 text-sm focus:outline-none focus:border-amber-500">
           <option value="Nike">Nike</option>
           <option value="Adidas">Adidas</option>
-          <option value="Puma">Puma</option>
           <option value="Asics">Asics</option>
-          <option value="Skechers">Skechers</option>
+          <option value="Puma">Puma</option>
+          <option value="New Balance">New Balance</option>
+          <option value="HOKA">HOKA</option>
           <option value="Other">ماركة أخرى</option>
         </select>
 
-        <label class="block text-xs font-bold mb-1">السعر ($):</label>
-        <input type="number" id="prodPrice" required class="w-full border p-2 rounded mb-3 text-sm">
+        <label class="block text-xs font-bold text-gray-300 mb-1">السعر ($):</label>
+        <input type="number" id="prodPrice" required placeholder="120" class="w-full bg-neutral-950 border border-neutral-800 text-white p-2.5 rounded-xl mb-3 text-sm focus:outline-none focus:border-amber-500">
 
-        <label class="block text-xs font-bold mb-1">المقاسات المتاحة (افصل بينها بفاصلة):</label>
-        <input type="text" id="prodSizes" placeholder="40, 41, 42, 43" required class="w-full border p-2 rounded mb-3 text-sm">
+        <label class="block text-xs font-bold text-gray-300 mb-1">المقاسات المتوفرة (افصل بينها بفاصلة):</label>
+        <input type="text" id="prodSizes" placeholder="40, 41, 42, 43" required class="w-full bg-neutral-950 border border-neutral-800 text-white p-2.5 rounded-xl mb-3 text-sm focus:outline-none focus:border-amber-500">
 
-        <label class="block text-xs font-bold mb-1">رابط صورة الحذاء:</label>
-        <input type="url" id="prodImage" placeholder="https://..." required class="w-full border p-2 rounded mb-4 text-sm">
+        <label class="block text-xs font-bold text-gray-300 mb-1">رابط صورة الحذاء:</label>
+        <input type="url" id="prodImage" placeholder="https://..." required class="w-full bg-neutral-950 border border-neutral-800 text-white p-2.5 rounded-xl mb-4 text-sm focus:outline-none focus:border-amber-500">
 
         <div class="flex gap-2">
-          <button type="submit" class="bg-green-600 text-white w-full py-2 rounded font-bold">حفظ المنتج</button>
-          <button type="button" onclick="closeProductModal()" class="bg-gray-200 w-full py-2 rounded">إلغاء</button>
+          <button type="submit" class="bg-amber-500 hover:bg-amber-400 text-black font-bold w-full py-2.5 rounded-xl transition text-sm">حفظ الحذاء</button>
+          <button type="button" onclick="closeProductModal()" class="bg-neutral-800 hover:bg-neutral-700 text-white w-full py-2.5 rounded-xl transition text-sm">إلغاء</button>
         </div>
       </form>
     </div>
   </div>
 
   <script>
-    // 1. Initial Sample Products Data
+    // المنتجات الافتراضية
     let defaultProducts = [
       { id: 1, name: "Air Max Plus", brand: "Nike", price: 175, sizes: ["41", "42", "43"], image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" },
-      { id: 2, name: "Kayano 14", brand: "Asics", price: 135, sizes: ["40", "42", "44"], image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=500" }
+      { id: 2, name: "GEL-Kayano 14", brand: "Asics", price: 150, sizes: ["40", "42", "44"], image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=500" },
+      { id: 3, name: "Ultraboost Light", brand: "Adidas", price: 140, sizes: ["41", "43", "45"], image: "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=500" }
     ];
 
-    // Load from Local Storage if available
     let products = JSON.parse(localStorage.getItem('janoudi_products')) || defaultProducts;
     let isAdmin = localStorage.getItem('janoudi_admin') === 'true';
 
-    // Initialize Page
     document.addEventListener('DOMContentLoaded', () => {
       updateAdminUI();
       renderProducts(products);
     });
 
-    // Render Products Grid
     function renderProducts(items) {
       const grid = document.getElementById('productsGrid');
       grid.innerHTML = '';
 
       items.forEach(p => {
-        const sizesHTML = p.sizes.map(s => `<span class="inline-block border px-1.5 py-0.5 text-xs rounded mr-1">${s}</span>`).join('');
+        const sizesHTML = p.sizes.map(s => `<span class="inline-block bg-neutral-800 border border-neutral-700 text-neutral-300 text-[10px] px-2 py-0.5 rounded-md">${s}</span>`).join(' ');
+        
         const adminControls = isAdmin ? `
-          <div class="mt-2 pt-2 border-t flex justify-between gap-1">
-            <button onclick="editProduct(${p.id})" class="bg-blue-600 text-white text-xs px-2 py-1 rounded w-full"><i class="fa-solid fa-pen"></i> تعديل</button>
-            <button onclick="deleteProduct(${p.id})" class="bg-red-600 text-white text-xs px-2 py-1 rounded w-full"><i class="fa-solid fa-trash"></i> حذف</button>
+          <div class="mt-3 pt-2 border-t border-neutral-800 flex justify-between gap-1">
+            <button onclick="editProduct(${p.id})" class="bg-blue-600/20 text-blue-400 border border-blue-500/30 text-xs px-2 py-1 rounded-lg w-full hover:bg-blue-600/30 transition"><i class="fa-solid fa-pen"></i> تعديل</button>
+            <button onclick="deleteProduct(${p.id})" class="bg-red-600/20 text-red-400 border border-red-500/30 text-xs px-2 py-1 rounded-lg w-full hover:bg-red-600/30 transition"><i class="fa-solid fa-trash"></i> حذف</button>
           </div>
         ` : '';
 
         grid.innerHTML += `
-          <div class="bg-white p-3 rounded-xl shadow-sm border relative flex flex-col justify-between">
+          <div class="bg-neutral-900/90 border border-neutral-800 p-3.5 rounded-2xl shadow-xl flex flex-col justify-between hover:border-neutral-700 transition">
             <div>
-              <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">${p.brand}</span>
-              <img src="${p.image}" class="w-full h-36 object-contain my-2 rounded-lg" alt="${p.name}">
-              <h3 class="font-bold text-sm text-gray-800">${p.name}</h3>
-              <p class="text-green-700 font-extrabold text-base my-1">$${p.price}</p>
-              <div class="text-xs text-gray-500 mb-2">المقاسات: ${sizesHTML}</div>
+              <span class="text-[10px] font-bold text-amber-500 uppercase tracking-widest">${p.brand}</span>
+              <div class="h-36 my-2 rounded-xl overflow-hidden flex items-center justify-center bg-neutral-950 p-2">
+                <img src="${p.image}" class="max-h-full object-contain" alt="${p.name}">
+              </div>
+              <h3 class="font-bold text-sm text-white line-clamp-1">${p.name}</h3>
+              <p class="text-emerald-400 font-black text-base my-1">$${p.price}</p>
+              <div class="text-xs text-gray-400 mb-3 flex flex-wrap gap-1 items-center">
+                <span class="text-[10px] text-gray-500">المقاسات:</span> ${sizesHTML}
+              </div>
             </div>
             <div>
-              <a href="https://wa.me/963981057508?text=مرحبا،%20حابب%20استفسر%20عن%20${encodeURIComponent(p.name)}" 
-                 target="_blank" class="block w-full text-center bg-black text-white text-xs py-2 rounded-lg font-bold">
+              <a href="https://wa.me/963981057508?text=مرحبا،%20حابب%20استفسر%20عن%20حذاء%20${encodeURIComponent(p.name)}" 
+                 target="_blank" class="block w-full text-center bg-white hover:bg-neutral-200 text-black text-xs py-2.5 rounded-xl font-bold transition">
                  طلب عبر الواتساب
               </a>
               ${adminControls}
@@ -154,13 +198,11 @@
       });
     }
 
-    // Filter Brands
     function filterBrand(brand) {
       if (brand === 'ALL') renderProducts(products);
       else renderProducts(products.filter(p => p.brand.toLowerCase() === brand.toLowerCase()));
     }
 
-    // Admin Auth Logic
     function toggleAdminModal() {
       document.getElementById('loginModal').classList.toggle('hidden');
       document.getElementById('loginModal').classList.toggle('flex');
@@ -168,7 +210,7 @@
 
     function loginAdmin() {
       const pass = document.getElementById('adminPassword').value;
-      if (pass === '123456') { // كلمة السر الخاصة بك
+      if (pass === '123456') {
         isAdmin = true;
         localStorage.setItem('janoudi_admin', 'true');
         updateAdminUI();
@@ -190,7 +232,6 @@
       document.getElementById('adminPanel').classList.toggle('hidden', !isAdmin);
     }
 
-    // Product CRUD
     function openAddProductModal() {
       document.getElementById('modalTitle').innerText = 'إضافة حذاء جديد';
       document.getElementById('productForm').reset();
