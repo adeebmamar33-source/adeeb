@@ -63,39 +63,43 @@
                 </div>
                 <div>
                     <h1 class="font-extrabold text-base sm:text-xl leading-tight tracking-wide gold-gradient-text">الجانودي أوتلت</h1>
-                    <p class="text-[10px] sm:text-xs text-slate-400 font-medium">Al-Janoudi Outlet | أحذية أوروبية أصلية 100% 🇪🇺</p>
+                    <p class="text-[10px] sm:text-xs text-slate-400 font-medium">Al-Janoudi Outlet | أحذية أوروبية أصلية 🇪🇺</p>
                 </div>
             </div>
 
-            <!-- Header Actions -->
+            <!-- Social Links & Header Actions -->
             <div class="flex items-center gap-2">
+                <!-- Social Media Buttons -->
+                <a href="https://www.facebook.com/share/1CBJRQMWLw/?mibextid=wwXIfr" target="_blank" class="bg-blue-600/20 hover:bg-blue-600 text-blue-400 hover:text-white p-2 rounded-xl transition border border-blue-500/30 text-sm">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/aljanoudi.shoes.outlet?rpxt=MWJ3cjk1YWhuNGM3ZQ%3D%3D&utm_source=qr" target="_blank" class="bg-pink-600/20 hover:bg-pink-600 text-pink-400 hover:text-white p-2 rounded-xl transition border border-pink-500/30 text-sm">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
                 <!-- Sham Cash Quick Button -->
-                <button onclick="openShamCashModal()" class="bg-emerald-950/80 hover:bg-emerald-900 text-emerald-400 border border-emerald-600/40 px-3 py-2 rounded-xl transition text-xs font-bold flex items-center gap-1.5 shadow-md">
-                    <i class="fa-solid fa-qrcode text-base"></i>
+                <button onclick="openShamCashModal()" class="bg-emerald-950/80 hover:bg-emerald-900 text-emerald-400 border border-emerald-600/40 px-2.5 py-2 rounded-xl transition text-xs font-bold flex items-center gap-1">
+                    <i class="fa-solid fa-qrcode text-sm"></i>
                     <span class="hidden sm:inline">شام كاش QR</span>
                 </button>
 
                 <!-- Admin Login Button -->
-                <button onclick="openAdminLoginModal()" class="bg-slate-800 hover:bg-slate-700 text-amber-400 border border-slate-700 px-3 py-2 rounded-xl transition text-xs font-bold flex items-center gap-1.5">
+                <button onclick="openAdminLoginModal()" class="bg-slate-800 hover:bg-slate-700 text-amber-400 border border-slate-700 px-2.5 py-2 rounded-xl transition text-xs font-bold flex items-center gap-1">
                     <i class="fa-solid fa-user-shield text-sm"></i>
                     <span class="hidden sm:inline">دخول الأدمن</span>
                 </button>
 
-                <!-- Cart Trigger & Direct Contact Button -->
-                <button onclick="openCartModal()" class="relative bg-slate-800 hover:bg-slate-700 text-amber-400 border border-slate-700 p-2.5 rounded-xl transition flex items-center gap-2 text-sm font-bold">
-                    <i class="fa-solid fa-cart-shopping text-lg"></i>
+                <!-- Cart Trigger -->
+                <button onclick="openCartModal()" class="relative bg-slate-800 hover:bg-slate-700 text-amber-400 border border-slate-700 p-2 rounded-xl transition flex items-center gap-1.5 text-xs font-bold">
+                    <i class="fa-solid fa-cart-shopping text-base"></i>
                     <span class="hidden sm:inline">السلة</span>
-                    <span id="cart-count" class="bg-amber-500 text-slate-950 text-xs font-black w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                    <span id="cart-count" class="bg-amber-500 text-slate-950 text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
                 </button>
-                <a href="https://wa.me/963981057508" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-2.5 rounded-xl transition text-xs sm:text-sm font-bold flex items-center gap-1.5 shadow-md">
-                    <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span class="hidden md:inline">0981057508</span>
-                </a>
             </div>
         </div>
     </header>
 
-    <!-- Admin Toolbar (Visible only when logged in) -->
+    <!-- Admin Toolbar -->
     <div id="admin-bar" class="hidden bg-amber-500 text-slate-950 px-4 py-2.5 font-bold text-xs sm:text-sm shadow-xl sticky top-[61px] z-30">
         <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
             <div class="flex items-center gap-2">
@@ -103,74 +107,54 @@
                 <span>لوحة تحكم الأدمن مفعّلة (صلاحيات كاملة)</span>
             </div>
             <div class="flex items-center gap-2">
-                <button onclick="openAddProductModal()" class="bg-slate-950 hover:bg-slate-900 text-amber-400 text-xs px-3 py-1.5 rounded-lg transition font-bold flex items-center gap-1">
-                    <i class="fa-solid fa-plus"></i> إضافة حذاء جديد
+                <button onclick="openAddProductModal()" class="bg-slate-950 hover:bg-slate-900 text-amber-400 text-xs px-2.5 py-1.5 rounded-lg transition font-bold flex items-center gap-1">
+                    <i class="fa-solid fa-plus"></i> إضافة حذاء
                 </button>
-                <button onclick="openChangePasswordModal()" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-2.5 py-1.5 rounded-lg transition font-bold">
+                <button onclick="openBrandManagerModal()" class="bg-slate-950 hover:bg-slate-900 text-amber-400 text-xs px-2.5 py-1.5 rounded-lg transition font-bold flex items-center gap-1">
+                    <i class="fa-solid fa-tags"></i> إدارة الماركات
+                </button>
+                <button onclick="openChangePasswordModal()" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-2 py-1.5 rounded-lg transition font-bold">
                     تغيير كلمة السر
                 </button>
-                <button onclick="logoutAdmin()" class="bg-red-700 hover:bg-red-800 text-white text-xs px-2.5 py-1.5 rounded-lg transition font-bold">
+                <button onclick="logoutAdmin()" class="bg-red-700 hover:bg-red-800 text-white text-xs px-2 py-1.5 rounded-lg transition font-bold">
                     تأمين وخروج
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Hero Banner -->
-    <section class="bg-gradient-to-b from-slate-900 to-slate-950 py-6 px-4 border-b border-slate-800/80">
-        <div class="max-w-7xl mx-auto text-center">
-            <span class="inline-block bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-bold px-3 py-1 rounded-full mb-3">
-                🏷️ جديد بالكامل بالتيكت الأصلي (NWT - New With Tags)
-            </span>
-            <h2 class="text-2xl sm:text-4xl font-black mb-2 text-slate-100">تشكيلة الأحذية الأوروبية الحصرية</h2>
-            <p class="text-xs sm:text-sm text-slate-400 max-w-2xl mx-auto mb-6">تصفح القطع المتوفرة، اختر مقاسك بدقة، واطلب فوراً عبر الواتساب مع خيارات الدفع المحلية السهلة (الشام كاش / الهرم).</p>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 max-w-4xl mx-auto text-xs">
-                <div class="bg-slate-900/80 border border-slate-800 p-2.5 rounded-xl flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-certificate text-amber-400 text-base"></i>
-                    <span class="font-bold">أصلي 100% مع التيكت</span>
-                </div>
-                <div class="bg-slate-900/80 border border-slate-800 p-2.5 rounded-xl flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-truck-fast text-amber-400 text-base"></i>
-                    <span class="font-bold">شحن لكافة المحافظات</span>
-                </div>
-                <button onclick="openShamCashModal()" class="bg-slate-900/80 border border-slate-800 p-2.5 rounded-xl flex items-center justify-center gap-2 hover:border-emerald-500/50 transition">
-                    <i class="fa-solid fa-wallet text-emerald-400 text-base"></i>
-                    <span class="font-bold text-emerald-400">شام كاش & الهرم</span>
-                </button>
-                <div class="bg-slate-900/80 border border-slate-800 p-2.5 rounded-xl flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-store text-amber-400 text-base"></i>
-                    <span class="font-bold">استلام مباشر من المحل</span>
-                </div>
-            </div>
+    <!-- Category Tabs (رجالي / نسائي / ولادي) -->
+    <section class="bg-slate-900/60 border-b border-slate-800 py-3 px-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 overflow-x-auto hide-scrollbar text-xs font-bold" id="category-filters">
+            <!-- Category Buttons Populated by JS -->
         </div>
     </section>
 
     <!-- Filters Section -->
-    <section class="max-w-7xl mx-auto px-4 pt-6 pb-2 w-full">
+    <section class="max-w-7xl mx-auto px-4 pt-4 pb-2 w-full">
         <div class="space-y-4">
             <div>
-                <label class="block text-xs font-bold text-slate-400 mb-2">تصفح حسب الماركة العالمية:</label>
+                <label class="block text-xs font-bold text-slate-400 mb-2">الماركة العالمية:</label>
                 <div class="flex gap-2 overflow-x-auto pb-2 hide-scrollbar text-xs font-bold" id="brand-filters"></div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-center">
                 <div class="sm:col-span-2">
-                    <label class="block text-xs font-bold text-slate-400 mb-2">اختر نمرتك / مقاسك المحدد:</label>
+                    <label class="block text-xs font-bold text-slate-400 mb-2">المقاسات المتوفرة:</label>
                     <div class="flex gap-1.5 overflow-x-auto pb-2 hide-scrollbar text-xs font-bold" id="size-filters"></div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-slate-400 mb-2">بحث بالاسم أو الخاصية:</label>
+                    <label class="block text-xs font-bold text-slate-400 mb-2">بحث بالاسم:</label>
                     <div class="relative">
-                        <input type="text" id="search-input" oninput="applyFilters()" placeholder="ابحث عن: Waterproof, Boost..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-amber-400">
+                        <input type="text" id="search-input" oninput="applyFilters()" placeholder="ابحث عن: Nike, Boost..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-amber-400">
                         <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-500 text-xs"></i>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="flex items-center justify-between mt-4 text-xs text-slate-400 border-t border-slate-800/60 pt-3">
+        <div class="flex items-center justify-between mt-3 text-xs text-slate-400 border-t border-slate-800/60 pt-2">
             <span>النتائج المعروضة: <strong id="result-count" class="text-amber-400 font-bold">0</strong> قطعة متوفرة</span>
             <button onclick="resetFilters()" class="text-slate-400 hover:text-amber-400 underline transition">إعادة ضبط الفلاتر</button>
         </div>
@@ -186,8 +170,13 @@
         </div>
     </main>
 
-    <!-- Footer Info -->
-    <footer class="bg-slate-950 py-4 border-t border-slate-800/60 text-center text-xs text-slate-500">
+    <!-- Footer Info with Social Links -->
+    <footer class="bg-slate-950 py-6 border-t border-slate-800/60 text-center text-xs text-slate-500 space-y-3">
+        <div class="flex justify-center gap-4 text-lg">
+            <a href="https://www.facebook.com/share/1CBJRQMWLw/?mibextid=wwXIfr" target="_blank" class="text-slate-400 hover:text-blue-500 transition"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/aljanoudi.shoes.outlet?rpxt=MWJ3cjk1YWhuNGM3ZQ%3D%3D&utm_source=qr" target="_blank" class="text-slate-400 hover:text-pink-500 transition"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/963981057508" target="_blank" class="text-slate-400 hover:text-emerald-500 transition"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
         <p>© 2026 الجانودي أوتلت (Al-Janoudi Outlet). جميع الحقوق محفوظة.</p>
     </footer>
 
@@ -197,7 +186,7 @@
             <button onclick="closeShamCashModal()" class="absolute top-4 left-4 text-slate-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
             <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-xl"><i class="fa-solid fa-qrcode"></i></div>
             <h3 class="font-extrabold text-slate-100 text-lg">الدفع عبر الشام كاش</h3>
-            <div class="bg-white p-3 rounded-xl inline-block border border-slate-700 max-w-[220px] mx-auto shadow-inner">
+            <div class="bg-white p-3 rounded-xl inline-block border border-slate-700 max-w-[240px] mx-auto shadow-inner">
                 <img id="sham-cash-qr-img" src="" alt="Sham Cash QR" class="w-full h-auto object-contain">
             </div>
             <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs space-y-1">
@@ -229,6 +218,20 @@
         </div>
     </div>
 
+    <!-- Brand Manager Modal -->
+    <div id="brand-manager-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-sm rounded-2xl shadow-2xl p-6 space-y-3">
+            <h3 class="font-extrabold text-slate-100 text-base border-b border-slate-800 pb-2">إدارة الماركات المتوفرة</h3>
+            <div class="flex gap-2">
+                <input type="text" id="new-brand-name" placeholder="اسم الماركة الجديدة..." class="w-full bg-slate-950 border border-slate-700 p-2 rounded-xl text-slate-100 text-xs">
+                <button onclick="addNewBrand()" class="bg-amber-500 text-slate-950 font-bold px-3 py-2 rounded-xl text-xs whitespace-nowrap">إضافة</button>
+            </div>
+            <div class="text-xs font-bold text-slate-400 pt-2">الماركات الحالية (انقر للحذف):</div>
+            <div id="brands-manage-list" class="flex flex-wrap gap-1.5 max-h-40 overflow-y-auto p-1 bg-slate-950 rounded-xl border border-slate-800"></div>
+            <button onclick="closeBrandManagerModal()" class="w-full bg-slate-800 text-slate-300 font-bold py-2 rounded-xl text-xs mt-2">إغلاق</button>
+        </div>
+    </div>
+
     <!-- Add / Edit Product Modal -->
     <div id="product-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 items-center justify-center p-4 hidden overflow-y-auto">
         <div class="bg-slate-900 border border-slate-700 w-full max-w-md rounded-2xl shadow-2xl p-6 my-8 space-y-3">
@@ -236,23 +239,44 @@
             <form id="product-form" onsubmit="handleSaveProduct(event)" class="space-y-3 text-xs">
                 <input type="hidden" id="prod-id">
                 <div><label class="block font-bold text-slate-300 mb-1">اسم الحذاء:</label><input type="text" id="prod-name" required class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100"></div>
+                
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-bold text-slate-300 mb-1">القسم:</label>
+                        <select id="prod-category" class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100">
+                            <option value="رجالي">رجالي 👨</option>
+                            <option value="نسائي">نسائي 👩</option>
+                            <option value="ولادي">ولادي 🧒</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-300 mb-1">حالة الحذاء:</label>
+                        <select id="prod-condition" class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100">
+                            <option value="جديد بالتيكت NWT">جديد بالتيكت (NWT) 🏷️</option>
+                            <option value="مستخدم نظيف Used">مستخدم نظيف (Used) 👟</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="grid grid-cols-2 gap-2">
                     <div>
                         <label class="block font-bold text-slate-300 mb-1">الماركة:</label>
-                        <select id="prod-brand" class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100">
-                            <option value="Nike">Nike</option><option value="Adidas">Adidas</option><option value="Puma">Puma</option><option value="Skechers">Skechers</option><option value="Salomon">Salomon</option><option value="New Balance">New Balance</option><option value="Reebok">Reebok</option>
-                        </select>
+                        <select id="prod-brand" class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100"></select>
                     </div>
-                    <div><label class="block font-bold text-slate-300 mb-1">السعر (ل.س):</label><input type="number" id="prod-price" required class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100"></div>
+                    <div><label class="block font-bold text-slate-300 mb-1">السعر ($ دولار):</label><input type="number" step="0.1" id="prod-price" placeholder="مثال: 45" required class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100"></div>
                 </div>
-                <div><label class="block font-bold text-slate-300 mb-1">النمر / المقاسات (افصل بفاصلة):</label><input type="text" id="prod-sizes" placeholder="41, 42, 43" required class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100"></div>
+
+                <div><label class="block font-bold text-slate-300 mb-1">النمر / المقاسات (ولادية، كبيرة.. افصل بفاصلة):</label><input type="text" id="prod-sizes" placeholder="مثال: 28, 29, 30 أو 41, 42" required class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100"></div>
+                
                 <div class="grid grid-cols-2 gap-2">
                     <div><label class="block font-bold text-slate-300 mb-1">المخزون المتوفر:</label><input type="number" id="prod-stock" value="1" min="0" required class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100"></div>
                     <div><label class="block font-bold text-slate-300 mb-1">الكمية المباعة:</label><input type="number" id="prod-sold" value="0" min="0" required class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100"></div>
                 </div>
-                <div><label class="block font-bold text-slate-300 mb-1">رابط الصورة:</label><input type="url" id="prod-image" required class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100"></div>
+
+                <div><label class="block font-bold text-slate-300 mb-1">رابط الصورة المباشر:</label><input type="url" id="prod-image" required class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100"></div>
+                
                 <div class="flex gap-2 pt-2">
-                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold py-2.5 rounded-xl transition">حفظ</button>
+                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold py-2.5 rounded-xl transition">حفظ الحذاء</button>
                     <button type="button" onclick="closeProductModal()" class="w-full bg-slate-800 text-slate-300 font-bold py-2.5 rounded-xl transition">إلغاء</button>
                 </div>
             </form>
@@ -281,7 +305,7 @@
             <div id="cart-items" class="p-4 overflow-y-auto flex-1 space-y-3"></div>
             <div class="p-4 border-t border-slate-800 bg-slate-950 space-y-3">
                 <div class="flex items-center justify-between text-sm font-bold text-slate-200">
-                    <span>المجموع:</span><span id="cart-total" class="text-amber-400 font-extrabold">0 ل.س</span>
+                    <span>المجموع:</span><span id="cart-total" class="text-amber-400 font-extrabold">$0</span>
                 </div>
                 <button onclick="sendCartToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-3 rounded-xl transition flex items-center justify-center gap-2">
                     <i class="fa-brands fa-whatsapp text-xl"></i><span>إرسال الطلب عبر الواتساب</span>
@@ -292,30 +316,38 @@
 
     <!-- JavaScript Data & Logic -->
     <script>
+        const defaultQRImage = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=af91b56b2d5b0e213b86dd28a05f76fe";
+
         const defaultProductsData = [
-            { id: 1, name: "Nike Real Black/Gold Special", brand: "Nike", sizes: [41, 42, 42.5, 43], price: 520000, stock: 5, sold: 2, tag: "أصلي 100% 🇪🇺", features: ["NWT جديدة بالتيكت"], image: "https://placehold.co/600x600/1e293b/d4af37?text=Nike+Black+Gold" },
-            { id: 2, name: "Puma x Care Of Medical Comfort", brand: "Puma", sizes: [40.5, 41, 42, 43, 45], price: 480000, stock: 8, sold: 4, tag: "أصلي 100% 🇪🇺", features: ["سبور شيك شامواه"], image: "https://placehold.co/600x600/1e293b/38bdf8?text=Puma+Care+Of" },
-            { id: 3, name: "Skechers Waterproof Edition", brand: "Skechers", sizes: [42.5], price: 510000, stock: 1, sold: 0, tag: "مع علبتها الأصلية 📦", features: ["Waterproof للماء"], image: "https://placehold.co/600x600/1e293b/10b981?text=Skechers+Waterproof" },
-            { id: 4, name: "Adidas Ultraboost NWT Europe", brand: "Adidas", sizes: [41, 42, 43, 44], price: 550000, stock: 4, sold: 1, tag: "أصلي 100% 🇪🇺", features: ["تقنية Boost المرنة"], image: "https://placehold.co/600x600/1e293b/f59e0b?text=Adidas+Ultraboost" }
+            { id: 1, name: "Nike Real Black/Gold Special", brand: "Nike", category: "رجالي", condition: "جديد بالتيكت NWT", sizes: [41, 42, 43], price: 55, stock: 5, sold: 2, image: "https://placehold.co/600x600/1e293b/d4af37?text=Nike+Black+Gold" },
+            { id: 2, name: "Puma Kids Medical Comfort", brand: "Puma", category: "ولادي", condition: "جديد بالتيكت NWT", sizes: [28, 29, 30], price: 35, stock: 8, sold: 4, image: "https://placehold.co/600x600/1e293b/38bdf8?text=Puma+Kids" },
+            { id: 3, name: "Skechers Women Waterproof", brand: "Skechers", category: "نسائي", condition: "مستخدم نظيف Used", sizes: [37, 38, 39], price: 40, stock: 3, sold: 1, image: "https://placehold.co/600x600/1e293b/10b981?text=Skechers+Women" }
         ];
+
+        let defaultBrands = ["Nike", "Adidas", "Puma", "Skechers", "Salomon", "New Balance", "Reebok"];
+        let brandsList = JSON.parse(localStorage.getItem('janoudi_brands')) || defaultBrands;
+        let categoriesList = ["الكل", "رجالي", "نسائي", "ولادي"];
 
         let productsData = JSON.parse(localStorage.getItem('janoudi_catalog_products')) || defaultProductsData;
         let adminPass = localStorage.getItem('janoudi_admin_pass') || 'adeeb.12345';
         let isAdmin = localStorage.getItem('janoudi_is_admin') === 'true';
 
-        let shamCashQR = localStorage.getItem('janoudi_shamcash_qr') || 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=ShamCash-0981057508';
+        let shamCashQR = localStorage.getItem('janoudi_shamcash_qr') || defaultQRImage;
         let shamCashAccount = localStorage.getItem('janoudi_shamcash_acc') || '0981057508';
 
-        const brandsList = ["الكل", "Nike", "Adidas", "Puma", "Skechers", "Salomon", "New Balance", "Reebok"];
-        const sizesList = ["الكل", 39, 40, 40.5, 41, 42, 42.5, 43, 44, 45];
-
+        let activeCategory = "الكل";
         let activeBrand = "الكل";
         let activeSize = "الكل";
         let cart = [];
 
         window.onload = function() {
+            if (shamCashQR.includes('ibb.co')) {
+                shamCashQR = defaultQRImage;
+                localStorage.setItem('janoudi_shamcash_qr', shamCashQR);
+            }
+            renderCategoryFilters();
             renderBrandFilters();
-            renderSizeFilters();
+            updateDynamicSizes();
             updateAdminUI();
             applyFilters();
             setupShamCashData();
@@ -328,31 +360,57 @@
             document.getElementById('edit-account-num').value = shamCashAccount;
         }
 
-        function renderBrandFilters() {
-            document.getElementById('brand-filters').innerHTML = brandsList.map(brand => {
-                const isActive = activeBrand === brand;
-                return `<button onclick="setBrand('${brand}')" class="px-4 py-2 rounded-xl whitespace-nowrap transition ${isActive ? 'bg-amber-500 text-slate-950 font-black' : 'bg-slate-900 text-slate-300 border border-slate-800'}">${brand}</button>`;
+        function renderCategoryFilters() {
+            document.getElementById('category-filters').innerHTML = categoriesList.map(cat => {
+                const isActive = activeCategory === cat;
+                return `<button onclick="setCategory('${cat}')" class="px-5 py-2 rounded-xl whitespace-nowrap transition ${isActive ? 'bg-amber-500 text-slate-950 font-black shadow-md' : 'bg-slate-900 text-slate-300 border border-slate-800 hover:border-amber-400'}">${cat === 'الكل' ? 'جميع الأقسام 👟' : cat}</button>`;
             }).join('');
         }
 
-        function renderSizeFilters() {
-            document.getElementById('size-filters').innerHTML = sizesList.map(size => {
+        function renderBrandFilters() {
+            const allBrands = ["الكل", ...brandsList];
+            document.getElementById('brand-filters').innerHTML = allBrands.map(brand => {
+                const isActive = activeBrand === brand;
+                return `<button onclick="setBrand('${brand}')" class="px-4 py-2 rounded-xl whitespace-nowrap transition ${isActive ? 'bg-amber-500 text-slate-950 font-black' : 'bg-slate-900 text-slate-300 border border-slate-800'}">${brand}</button>`;
+            }).join('');
+
+            // Populate Brand Select in Product Modal
+            const brandSelect = document.getElementById('prod-brand');
+            if (brandSelect) {
+                brandSelect.innerHTML = brandsList.map(b => `<option value="${b}">${b}</option>`).join('');
+            }
+        }
+
+        function updateDynamicSizes() {
+            let sizesSet = new Set();
+            productsData.forEach(p => p.sizes.forEach(s => sizesSet.add(s)));
+            let sortedSizes = Array.from(sizesSet).sort((a, b) => a - b);
+            let sizesWithAll = ["الكل", ...sortedSizes];
+
+            document.getElementById('size-filters').innerHTML = sizesWithAll.map(size => {
                 const isActive = activeSize === size;
                 return `<button onclick="setSize('${size}')" class="px-3 py-1.5 rounded-lg whitespace-nowrap transition ${isActive ? 'bg-amber-500 text-slate-950 font-black' : 'bg-slate-900 text-slate-300 border border-slate-800'}">${size === 'الكل' ? 'جميع المقاسات' : 'مقاس ' + size}</button>`;
             }).join('');
         }
 
+        function setCategory(c) { activeCategory = c; renderCategoryFilters(); applyFilters(); }
         function setBrand(b) { activeBrand = b; renderBrandFilters(); applyFilters(); }
-        function setSize(s) { activeSize = s === 'الكل' ? 'الكل' : parseFloat(s); renderSizeFilters(); applyFilters(); }
-        function resetFilters() { activeBrand = "الكل"; activeSize = "الكل"; document.getElementById('search-input').value = ""; renderBrandFilters(); renderSizeFilters(); applyFilters(); }
+        function setSize(s) { activeSize = s === 'الكل' ? 'الكل' : parseFloat(s); updateDynamicSizes(); applyFilters(); }
+        
+        function resetFilters() {
+            activeCategory = "الكل"; activeBrand = "الكل"; activeSize = "الكل";
+            document.getElementById('search-input').value = "";
+            renderCategoryFilters(); renderBrandFilters(); updateDynamicSizes(); applyFilters();
+        }
 
         function applyFilters() {
             const searchVal = document.getElementById('search-input').value.toLowerCase().trim();
             const filtered = productsData.filter(p => {
+                const mCat = (activeCategory === "الكل") || (p.category === activeCategory);
                 const mBrand = (activeBrand === "الكل") || (p.brand.toLowerCase() === activeBrand.toLowerCase());
                 const mSize = (activeSize === "الكل") || (p.sizes.includes(activeSize));
                 const mSearch = searchVal === "" || p.name.toLowerCase().includes(searchVal) || p.brand.toLowerCase().includes(searchVal);
-                return mBrand && mSize && mSearch;
+                return mCat && mBrand && mSize && mSearch;
             });
             renderProducts(filtered);
             document.getElementById('result-count').innerText = filtered.length;
@@ -376,16 +434,24 @@
                     </div>
                 ` : '';
 
+                const condBadge = p.condition && p.condition.includes('مستخدم') 
+                    ? `<span class="bg-slate-800 text-slate-300 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-700">👟 مستخدم نظيف</span>`
+                    : `<span class="bg-amber-500/10 text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded-full border border-amber-500/30">🏷️ جديد بالتيكت</span>`;
+
                 return `
-                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-4 flex flex-col justify-between shadow-lg">
+                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-4 flex flex-col justify-between shadow-lg relative">
                     <div>
-                        <div class="bg-slate-950 aspect-square rounded-xl overflow-hidden mb-3"><img src="${p.image}" class="w-full h-full object-cover"></div>
+                        <div class="bg-slate-950 aspect-square rounded-xl overflow-hidden mb-3 relative">
+                            <img src="${p.image}" class="w-full h-full object-cover">
+                            <div class="absolute top-2 right-2">${condBadge}</div>
+                            <div class="absolute bottom-2 left-2 bg-slate-950/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-md border border-slate-700">${p.category || 'رجالي'}</div>
+                        </div>
                         <div class="text-[11px] font-bold text-amber-400 uppercase">${p.brand}</div>
                         <h3 class="font-extrabold text-slate-100 text-base my-1">${p.name}</h3>
-                        <div class="text-xs text-slate-400 mb-2">المقاسات: ${p.sizes.join(', ')}</div>
+                        <div class="text-xs text-slate-400 mb-2">النمر: ${p.sizes.join(', ')}</div>
                     </div>
                     <div>
-                        <div class="text-lg font-black text-amber-400 mb-2">${Number(p.price).toLocaleString()} ل.س</div>
+                        <div class="text-lg font-black text-amber-400 mb-2">$${p.price} <span class="text-xs font-normal text-slate-400">دولار</span></div>
                         <div class="grid grid-cols-2 gap-2">
                             <button onclick="directWhatsAppOrder(${p.id})" class="bg-emerald-600 text-white font-bold py-2 rounded-xl text-xs">طلب مباشر</button>
                             <button onclick="addToCart(${p.id})" class="bg-slate-800 text-amber-400 border border-slate-700 font-bold py-2 rounded-xl text-xs">سلة</button>
@@ -399,7 +465,7 @@
         function directWhatsAppOrder(id) {
             const p = productsData.find(prod => prod.id === id);
             if (!p) return;
-            window.open(`https://wa.me/963981057508?text=${encodeURIComponent(`استفسار عن حذاء: ${p.name} - بسعر: ${p.price} ل.س`)}`, '_blank');
+            window.open(`https://wa.me/963981057508?text=${encodeURIComponent(`استفسار عن حذاء: ${p.name} (${p.category}) - بسعر: $${p.price}`)}`, '_blank');
         }
 
         function addToCart(id) {
@@ -415,14 +481,14 @@
             let total = 0;
             document.getElementById('cart-items').innerHTML = cart.map(item => {
                 total += item.price;
-                return `<div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex justify-between text-xs"><span>${item.name}</span><strong>${item.price.toLocaleString()} ل.س</strong></div>`;
+                return `<div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex justify-between text-xs"><span>${item.name} (${item.category})</span><strong>$${item.price}</strong></div>`;
             }).join('');
-            document.getElementById('cart-total').innerText = total.toLocaleString() + " ل.س";
+            document.getElementById('cart-total').innerText = "$" + total;
         }
 
         function sendCartToWhatsApp() {
             if (cart.length === 0) return alert("السلة فارغة");
-            let text = cart.map(i => `${i.name} - ${i.price} ل.س`).join('\n');
+            let text = cart.map(i => `${i.name} - $${i.price}`).join('\n');
             window.open(`https://wa.me/963981057508?text=${encodeURIComponent(`طلب سلة أحذية:\n${text}`)}`, '_blank');
         }
 
@@ -440,6 +506,38 @@
         function closeShamCashModal() { toggleModal('sham-cash-modal', false); }
         function openCartModal() { toggleModal('cart-modal', true); }
         function closeCartModal() { toggleModal('cart-modal', false); }
+
+        function openBrandManagerModal() {
+            renderBrandManagerList();
+            toggleModal('brand-manager-modal', true);
+        }
+        function closeBrandManagerModal() { toggleModal('brand-manager-modal', false); }
+
+        function renderBrandManagerList() {
+            document.getElementById('brands-manage-list').innerHTML = brandsList.map((b, i) => 
+                `<span onclick="removeBrand(${i})" class="bg-slate-900 hover:bg-red-950 hover:text-red-400 border border-slate-700 px-2 py-1 rounded-lg text-slate-200 cursor-pointer flex items-center gap-1">${b} <i class="fa-solid fa-xmark text-[10px]"></i></span>`
+            ).join('');
+        }
+
+        function addNewBrand() {
+            const val = document.getElementById('new-brand-name').value.trim();
+            if (val && !brandsList.includes(val)) {
+                brandsList.push(val);
+                localStorage.setItem('janoudi_brands', JSON.stringify(brandsList));
+                renderBrandFilters();
+                renderBrandManagerList();
+                document.getElementById('new-brand-name').value = "";
+            }
+        }
+
+        function removeBrand(index) {
+            if (confirm("حذف هذه الماركة من القائمة؟")) {
+                brandsList.splice(index, 1);
+                localStorage.setItem('janoudi_brands', JSON.stringify(brandsList));
+                renderBrandFilters();
+                renderBrandManagerList();
+            }
+        }
 
         function submitAdminLogin() {
             const pass = document.getElementById('admin-pass-input').value;
@@ -481,6 +579,8 @@
             document.getElementById('modal-title').innerText = "تعديل الحذاء والمخزون";
             document.getElementById('prod-id').value = p.id;
             document.getElementById('prod-name').value = p.name;
+            document.getElementById('prod-category').value = p.category || "رجالي";
+            document.getElementById('prod-condition').value = p.condition || "جديد بالتيكت NWT";
             document.getElementById('prod-brand').value = p.brand;
             document.getElementById('prod-price').value = p.price;
             document.getElementById('prod-sizes').value = p.sizes.join(', ');
@@ -500,6 +600,8 @@
             const newProd = {
                 id: id ? parseInt(id) : Date.now(),
                 name: document.getElementById('prod-name').value,
+                category: document.getElementById('prod-category').value,
+                condition: document.getElementById('prod-condition').value,
                 brand: document.getElementById('prod-brand').value,
                 price: parseFloat(document.getElementById('prod-price').value),
                 sizes: sizesArr.length > 0 ? sizesArr : [41, 42],
@@ -513,6 +615,7 @@
 
             localStorage.setItem('janoudi_catalog_products', JSON.stringify(productsData));
             closeProductModal();
+            updateDynamicSizes();
             applyFilters();
         }
 
@@ -520,6 +623,7 @@
             if (confirm("هل أنت تأكد من الحذف؟")) {
                 productsData = productsData.filter(p => p.id !== id);
                 localStorage.setItem('janoudi_catalog_products', JSON.stringify(productsData));
+                updateDynamicSizes();
                 applyFilters();
             }
         }
