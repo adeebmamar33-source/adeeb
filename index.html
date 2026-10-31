@@ -155,8 +155,8 @@
     <div id="product-details-modal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-50 items-center justify-center p-4 hidden">
         <div class="bg-slate-900 border border-slate-700 w-full max-w-lg rounded-2xl shadow-2xl p-5 space-y-4 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeProductDetailsModal()" class="absolute top-4 left-4 text-slate-400 hover:text-white text-lg z-10 bg-slate-950/80 p-2 rounded-full"><i class="fa-solid fa-xmark"></i></button>
-            <div class="bg-slate-950 aspect-square rounded-2xl overflow-hidden border border-slate-800 relative">
-                <img id="modal-main-img" src="" class="w-full h-full object-cover">
+            <div class="bg-slate-950 aspect-square rounded-2xl overflow-hidden border border-slate-800 relative flex items-center justify-center">
+                <img id="modal-main-img" src="" class="w-full h-full object-contain">
             </div>
             <div id="modal-thumbnails" class="flex gap-2 overflow-x-auto pb-2 hide-scrollbar"></div>
             <div class="space-y-1 text-right">
@@ -429,8 +429,8 @@
                 return `
                 <div class="bg-slate-900 rounded-2xl border border-slate-800 p-4 flex flex-col justify-between shadow-lg relative">
                     <div>
-                        <div class="bg-slate-950 aspect-square rounded-xl overflow-hidden mb-3 relative cursor-pointer group" onclick="openProductDetails('${p.id}')">
-                            <img src="${p.image}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <div class="bg-slate-950 aspect-square rounded-xl overflow-hidden mb-3 relative cursor-pointer group flex items-center justify-center" onclick="openProductDetails('${p.id}')">
+                            <img src="${p.image}" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
                             <div class="absolute top-2 right-2">${condBadge}</div>
                             <div class="absolute top-2 left-2 bg-slate-950/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-md border border-slate-700">${p.category || 'رجالي'}</div>
                             ${extraCountBadge}
@@ -465,8 +465,8 @@
 
             const thumbContainer = document.getElementById('modal-thumbnails');
             thumbContainer.innerHTML = allImgs.map((imgUrl) => `
-                <div onclick="changeMainImage('${imgUrl}')" class="w-16 h-16 rounded-lg overflow-hidden border-2 border-slate-700 hover:border-amber-400 cursor-pointer flex-shrink-0 bg-slate-950">
-                    <img src="${imgUrl}" class="w-full h-full object-cover">
+                <div onclick="changeMainImage('${imgUrl}')" class="w-16 h-16 rounded-lg overflow-hidden border-2 border-slate-700 hover:border-amber-400 cursor-pointer flex-shrink-0 bg-slate-950 flex items-center justify-center">
+                    <img src="${imgUrl}" class="w-full h-full object-contain">
                 </div>
             `).join('');
 
