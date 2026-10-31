@@ -13,21 +13,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
+    <!-- Firebase SDK Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            gold: '#D4AF37',
-                            dark: '#0F172A',
-                            card: '#1E293B',
-                        }
+                        brand: { gold: '#D4AF37', dark: '#0F172A', card: '#1E293B' }
                     },
-                    fontFamily: {
-                        sans: ['Cairo', 'Inter', 'sans-serif'],
-                    }
+                    fontFamily: { sans: ['Cairo', 'Inter', 'sans-serif'] }
                 }
             }
         }
@@ -54,7 +52,6 @@
     <!-- Header Navigation -->
     <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-2">
-            <!-- Brand Logo / Title -->
             <div class="flex items-center gap-3 cursor-pointer" onclick="resetFilters()">
                 <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-tr from-amber-500 via-amber-300 to-amber-600 p-0.5 shadow-md flex items-center justify-center">
                     <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
@@ -67,7 +64,6 @@
                 </div>
             </div>
 
-            <!-- Social Links & Header Actions -->
             <div class="flex items-center gap-2">
                 <a href="https://www.facebook.com/share/1CBJRQMWLw/?mibextid=wwXIfr" target="_blank" class="bg-blue-600/20 hover:bg-blue-600 text-blue-400 hover:text-white p-2 rounded-xl transition border border-blue-500/30 text-sm">
                     <i class="fa-brands fa-facebook-f"></i>
@@ -96,8 +92,8 @@
     <div id="admin-bar" class="hidden bg-amber-500 text-slate-950 px-4 py-2.5 font-bold text-xs sm:text-sm shadow-xl sticky top-[61px] z-30">
         <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
             <div class="flex items-center gap-2">
-                <i class="fa-solid fa-lock-open text-base"></i>
-                <span>لوحة تحكم الأدمن مفعّلة (تعديل مباشر)</span>
+                <i class="fa-solid fa-cloud-arrow-up text-base"></i>
+                <span>لوحة الأدمن (مزامنة سحابية مباشرة)</span>
             </div>
             <div class="flex items-center gap-2">
                 <button onclick="openAddProductModal()" class="bg-slate-950 hover:bg-slate-900 text-amber-400 text-xs px-2.5 py-1.5 rounded-lg transition font-bold flex items-center gap-1">
@@ -105,9 +101,6 @@
                 </button>
                 <button onclick="openBrandManagerModal()" class="bg-slate-950 hover:bg-slate-900 text-amber-400 text-xs px-2.5 py-1.5 rounded-lg transition font-bold flex items-center gap-1">
                     <i class="fa-solid fa-tags"></i> إدارة الماركات
-                </button>
-                <button onclick="openChangePasswordModal()" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-2 py-1.5 rounded-lg transition font-bold">
-                    كلمة السر
                 </button>
                 <button onclick="logoutAdmin()" class="bg-red-700 hover:bg-red-800 text-white text-xs px-2 py-1.5 rounded-lg transition font-bold">
                     خروج
@@ -153,7 +146,7 @@
         <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
         <div id="no-results" class="hidden text-center py-12 bg-slate-900/50 rounded-2xl border border-slate-800">
             <i class="fa-solid fa-box-open text-4xl text-slate-600 mb-3"></i>
-            <h3 class="text-lg font-bold text-slate-300">لم نجد أي قطعة تطابق خياراتك!</h3>
+            <h3 class="text-lg font-bold text-slate-300">جاري تحميل الأحذية أو لا توجد نتائج...</h3>
             <button onclick="resetFilters()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold px-4 py-2 rounded-xl transition mt-4">إظهار جميع القطع</button>
         </div>
     </main>
@@ -179,7 +172,7 @@
         </div>
     </div>
 
-    <!-- Footer Info with Social Links -->
+    <!-- Footer Info -->
     <footer class="bg-slate-950 py-6 border-t border-slate-800/60 text-center text-xs text-slate-500 space-y-3">
         <div class="flex justify-center gap-4 text-lg">
             <a href="https://www.facebook.com/share/1CBJRQMWLw/?mibextid=wwXIfr" target="_blank" class="text-slate-400 hover:text-blue-500 transition"><i class="fa-brands fa-facebook"></i></a>
@@ -201,12 +194,6 @@
             <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs space-y-1">
                 <span class="text-slate-400 block">رقم الحساب / الموبايل:</span>
                 <strong id="sham-cash-account-num" class="text-emerald-400 text-sm font-mono tracking-wider">0981057508</strong>
-            </div>
-            <div id="admin-qr-edit-box" class="hidden pt-3 border-t border-slate-800 text-right space-y-2 text-xs">
-                <span class="font-bold text-amber-400 block">تعديل كيو آر ورقم الشام كاش:</span>
-                <input type="url" id="edit-qr-url" placeholder="رابط صورة الـ QR" class="w-full bg-slate-950 border border-slate-700 p-2 rounded-lg text-slate-200">
-                <input type="text" id="edit-account-num" placeholder="رقم الحساب" class="w-full bg-slate-950 border border-slate-700 p-2 rounded-lg text-slate-200">
-                <button onclick="saveShamCashQR()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 rounded-lg transition">حفظ التغييرات</button>
             </div>
         </div>
     </div>
@@ -282,25 +269,13 @@
 
                 <div><label class="block font-bold text-slate-300 mb-1">رابط الصورة الرئيسية (رابط مباشر):</label><input type="url" id="prod-image" required class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100"></div>
                 
-                <div><label class="block font-bold text-slate-300 mb-1">روابط الصور الإضافية (افصل بفاصلة أو مسافة):</label><textarea id="prod-extra-images" placeholder="https://i.ibb.co/..." class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100 h-20 text-xs"></textarea></div>
+                <div><label class="block font-bold text-slate-300 mb-1">روابط الصور الإضافية (افصل بفاصلة):</label><textarea id="prod-extra-images" placeholder="https://i.ibb.co/..." class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100 h-20 text-xs"></textarea></div>
 
                 <div class="flex gap-2 pt-2">
-                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold py-2.5 rounded-xl transition">حفظ الحذاء</button>
+                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold py-2.5 rounded-xl transition">حفظ سحابي مباشر</button>
                     <button type="button" onclick="closeProductModal()" class="w-full bg-slate-800 text-slate-300 font-bold py-2.5 rounded-xl transition">إلغاء</button>
                 </div>
             </form>
-        </div>
-    </div>
-
-    <!-- Change Password Modal -->
-    <div id="change-pass-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 items-center justify-center p-4 hidden">
-        <div class="bg-slate-900 border border-slate-700 w-full max-w-sm rounded-2xl shadow-2xl p-6 space-y-3">
-            <h3 class="font-extrabold text-slate-100 text-base border-b border-slate-800 pb-2">تغيير كلمة السر</h3>
-            <input type="password" id="new-pass-input" placeholder="كلمة السر الجديدة..." class="w-full bg-slate-950 border border-slate-700 p-2.5 rounded-xl text-slate-100 text-xs">
-            <div class="flex gap-2 pt-2">
-                <button onclick="saveNewPassword()" class="w-full bg-amber-500 text-slate-950 font-extrabold py-2 rounded-xl text-xs">حفظ</button>
-                <button onclick="closeChangePasswordModal()" class="w-full bg-slate-800 text-slate-300 font-bold py-2 rounded-xl text-xs">إلغاء</button>
-            </div>
         </div>
     </div>
 
@@ -323,23 +298,26 @@
         </div>
     </div>
 
-    <!-- JavaScript Data & Logic -->
+    <!-- Firebase Init & Logic -->
     <script>
+        // إعدادات اتصال السحابة المباشرة (Firebase Realtime Database)
+        const firebaseConfig = {
+            databaseURL: "https://janoudi-outlet-default-rtdb.firebaseio.com"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
         const defaultQRImage = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=af91b56b2d5b0e213b86dd28a05f76fe";
 
-        // تم جعل المنتجات الافتراضية فارغة ليتم التحكم كاملاً من لوحة الأدمن بشكل ديناميكي
-        const defaultProductsData = [];
-
-        let defaultBrands = ["Nike", "Adidas", "Puma", "Skechers", "Salomon", "New Balance", "Reebok", "Hoka"];
-        let brandsList = JSON.parse(localStorage.getItem('janoudi_brands')) || defaultBrands;
+        let brandsList = ["Nike", "Adidas", "Puma", "Skechers", "Salomon", "New Balance", "Reebok", "Hoka"];
         let categoriesList = ["الكل", "رجالي", "نسائي", "ولادي"];
 
-        let productsData = JSON.parse(localStorage.getItem('janoudi_catalog_products')) || defaultProductsData;
-        let adminPass = localStorage.getItem('janoudi_admin_pass') || 'adeeb.12345';
+        let productsData = [];
+        let adminPass = 'adeeb.12345';
         let isAdmin = localStorage.getItem('janoudi_is_admin') === 'true';
 
-        let shamCashQR = localStorage.getItem('janoudi_shamcash_qr') || defaultQRImage;
-        let shamCashAccount = localStorage.getItem('janoudi_shamcash_acc') || '0981057508';
+        let shamCashQR = defaultQRImage;
+        let shamCashAccount = '0981057508';
 
         let activeCategory = "الكل";
         let activeBrand = "الكل";
@@ -347,23 +325,28 @@
         let cart = [];
 
         window.onload = function() {
-            if (shamCashQR.includes('ibb.co')) {
-                shamCashQR = defaultQRImage;
-                localStorage.setItem('janoudi_shamcash_qr', shamCashQR);
-            }
-            renderCategoryFilters();
-            renderBrandFilters();
-            updateDynamicSizes();
-            updateAdminUI();
-            applyFilters();
+            // الاستماع المباشر للتغيرات بالسحابة فوراً
+            db.ref('products').on('value', (snapshot) => {
+                const data = snapshot.val();
+                productsData = data ? Object.values(data) : [];
+                updateDynamicSizes();
+                applyFilters();
+            });
+
+            db.ref('brands').on('value', (snapshot) => {
+                const data = snapshot.val();
+                if(data) brandsList = Object.values(data);
+                renderBrandFilters();
+            });
+
             setupShamCashData();
+            renderCategoryFilters();
+            updateAdminUI();
         };
 
         function setupShamCashData() {
             document.getElementById('sham-cash-qr-img').src = shamCashQR;
             document.getElementById('sham-cash-account-num').innerText = shamCashAccount;
-            document.getElementById('edit-qr-url').value = shamCashQR;
-            document.getElementById('edit-account-num').value = shamCashAccount;
         }
 
         function renderCategoryFilters() {
@@ -388,7 +371,7 @@
 
         function updateDynamicSizes() {
             let sizesSet = new Set();
-            productsData.forEach(p => p.sizes.forEach(s => sizesSet.add(s)));
+            productsData.forEach(p => p.sizes && p.sizes.forEach(s => sizesSet.add(s)));
             let sortedSizes = Array.from(sizesSet).sort((a, b) => a - b);
             let sizesWithAll = ["الكل", ...sortedSizes];
 
@@ -412,9 +395,9 @@
             const searchVal = document.getElementById('search-input').value.toLowerCase().trim();
             const filtered = productsData.filter(p => {
                 const mCat = (activeCategory === "الكل") || (p.category === activeCategory);
-                const mBrand = (activeBrand === "الكل") || (p.brand.toLowerCase() === activeBrand.toLowerCase());
-                const mSize = (activeSize === "الكل") || (p.sizes.includes(activeSize));
-                const mSearch = searchVal === "" || p.name.toLowerCase().includes(searchVal) || p.brand.toLowerCase().includes(searchVal);
+                const mBrand = (activeBrand === "الكل") || (p.brand && p.brand.toLowerCase() === activeBrand.toLowerCase());
+                const mSize = (activeSize === "الكل") || (p.sizes && p.sizes.includes(activeSize));
+                const mSearch = searchVal === "" || p.name.toLowerCase().includes(searchVal) || (p.brand && p.brand.toLowerCase().includes(searchVal));
                 return mCat && mBrand && mSize && mSearch;
             });
             renderProducts(filtered);
@@ -430,8 +413,8 @@
             grid.innerHTML = products.map(p => {
                 const adminControls = isAdmin ? `
                     <div class="mt-3 pt-2 border-t border-slate-800 flex justify-between gap-1 text-xs">
-                        <button onclick="openEditProductModal(${p.id})" class="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-2 py-1 rounded-lg w-full font-bold">تعديل</button>
-                        <button onclick="deleteProduct(${p.id})" class="bg-red-600/20 text-red-400 border border-red-500/30 px-2 py-1 rounded-lg w-full font-bold">حذف</button>
+                        <button onclick="openEditProductModal('${p.id}')" class="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-2 py-1 rounded-lg w-full font-bold">تعديل</button>
+                        <button onclick="deleteProduct('${p.id}')" class="bg-red-600/20 text-red-400 border border-red-500/30 px-2 py-1 rounded-lg w-full font-bold">حذف</button>
                     </div>
                 ` : '';
 
@@ -446,21 +429,21 @@
                 return `
                 <div class="bg-slate-900 rounded-2xl border border-slate-800 p-4 flex flex-col justify-between shadow-lg relative">
                     <div>
-                        <div class="bg-slate-950 aspect-square rounded-xl overflow-hidden mb-3 relative cursor-pointer group" onclick="openProductDetails(${p.id})">
+                        <div class="bg-slate-950 aspect-square rounded-xl overflow-hidden mb-3 relative cursor-pointer group" onclick="openProductDetails('${p.id}')">
                             <img src="${p.image}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                             <div class="absolute top-2 right-2">${condBadge}</div>
                             <div class="absolute top-2 left-2 bg-slate-950/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-md border border-slate-700">${p.category || 'رجالي'}</div>
                             ${extraCountBadge}
                         </div>
                         <div class="text-[11px] font-bold text-amber-400 uppercase">${p.brand}</div>
-                        <h3 class="font-extrabold text-slate-100 text-base my-1 cursor-pointer hover:text-amber-400 transition" onclick="openProductDetails(${p.id})">${p.name}</h3>
-                        <div class="text-xs text-slate-400 mb-2">النمر: ${p.sizes.join(', ')}</div>
+                        <h3 class="font-extrabold text-slate-100 text-base my-1 cursor-pointer hover:text-amber-400 transition" onclick="openProductDetails('${p.id}')">${p.name}</h3>
+                        <div class="text-xs text-slate-400 mb-2">النمر: ${p.sizes ? p.sizes.join(', ') : ''}</div>
                     </div>
                     <div>
                         <div class="text-lg font-black text-amber-400 mb-2">$${p.price} <span class="text-xs font-normal text-slate-400">دولار</span></div>
                         <div class="grid grid-cols-2 gap-2">
-                            <button onclick="openProductDetails(${p.id})" class="bg-slate-800 hover:bg-slate-700 text-amber-400 border border-slate-700 font-bold py-2 rounded-xl text-xs"><i class="fa-solid fa-eye"></i> عرض الصور</button>
-                            <button onclick="addToCart(${p.id})" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 rounded-xl text-xs">سلة</button>
+                            <button onclick="openProductDetails('${p.id}')" class="bg-slate-800 hover:bg-slate-700 text-amber-400 border border-slate-700 font-bold py-2 rounded-xl text-xs"><i class="fa-solid fa-eye"></i> عرض الصور</button>
+                            <button onclick="addToCart('${p.id}')" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 rounded-xl text-xs">سلة</button>
                         </div>
                         ${adminControls}
                     </div>
@@ -469,7 +452,7 @@
         }
 
         function openProductDetails(id) {
-            const p = productsData.find(prod => prod.id === id);
+            const p = productsData.find(prod => prod.id == id);
             if (!p) return;
 
             let allImgs = [p.image, ...(p.extraImages || [])];
@@ -478,10 +461,10 @@
             document.getElementById('modal-prod-brand').innerText = p.brand;
             document.getElementById('modal-prod-name').innerText = p.name;
             document.getElementById('modal-prod-price').innerText = `$${p.price} دولار`;
-            document.getElementById('modal-prod-sizes').innerText = `المقاسات المتوفرة: ${p.sizes.join(', ')}`;
+            document.getElementById('modal-prod-sizes').innerText = `المقاسات المتوفرة: ${p.sizes ? p.sizes.join(', ') : ''}`;
 
             const thumbContainer = document.getElementById('modal-thumbnails');
-            thumbContainer.innerHTML = allImgs.map((imgUrl, idx) => `
+            thumbContainer.innerHTML = allImgs.map((imgUrl) => `
                 <div onclick="changeMainImage('${imgUrl}')" class="w-16 h-16 rounded-lg overflow-hidden border-2 border-slate-700 hover:border-amber-400 cursor-pointer flex-shrink-0 bg-slate-950">
                     <img src="${imgUrl}" class="w-full h-full object-cover">
                 </div>
@@ -491,25 +474,16 @@
                 window.open(`https://wa.me/963981057508?text=${encodeURIComponent(`مرحباً، حابب استفسر عن حذاء: ${p.name} (${p.category}) - بسعر: $${p.price}`)}`, '_blank');
             };
 
-            const modal = document.getElementById('product-details-modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
+            toggleModal('product-details-modal', true);
         }
 
-        function changeMainImage(url) {
-            document.getElementById('modal-main-img').src = url;
-        }
-
-        function closeProductDetailsModal() {
-            const modal = document.getElementById('product-details-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }
+        function changeMainImage(url) { document.getElementById('modal-main-img').src = url; }
+        function closeProductDetailsModal() { toggleModal('product-details-modal', false); }
 
         function addToCart(id) {
-            const p = productsData.find(prod => prod.id === id);
+            const p = productsData.find(prod => prod.id == id);
             if (!p) return;
-            cart.push({ ...p, selectedSize: p.sizes[0], quantity: 1 });
+            cart.push({ ...p, selectedSize: p.sizes ? p.sizes[0] : '', quantity: 1 });
             updateCartUI();
             openCartModal();
         }
@@ -560,19 +534,15 @@
             const val = document.getElementById('new-brand-name').value.trim();
             if (val && !brandsList.includes(val)) {
                 brandsList.push(val);
-                localStorage.setItem('janoudi_brands', JSON.stringify(brandsList));
-                renderBrandFilters();
-                renderBrandManagerList();
+                db.ref('brands').set(brandsList);
                 document.getElementById('new-brand-name').value = "";
             }
         }
 
         function removeBrand(index) {
-            if (confirm("حذف هذه الماركة من القائمة؟")) {
+            if (confirm("حذف هذه الماركة؟")) {
                 brandsList.splice(index, 1);
-                localStorage.setItem('janoudi_brands', JSON.stringify(brandsList));
-                renderBrandFilters();
-                renderBrandManagerList();
+                db.ref('brands').set(brandsList);
             }
         }
 
@@ -584,7 +554,7 @@
                 updateAdminUI();
                 closeAdminLoginModal();
                 applyFilters();
-                alert('أهلاً أدمن! تم تفعيل لوحة التحكم.');
+                alert('تم دخول الأدمن وحفظ الجلسة!');
             } else { alert('كلمة السر خاطئة!'); }
         }
 
@@ -595,37 +565,30 @@
             applyFilters();
         }
 
-        function updateAdminUI() {
-            toggleModal('admin-bar', isAdmin);
-            if(document.getElementById('admin-qr-edit-box')) {
-                if(isAdmin) document.getElementById('admin-qr-edit-box').classList.remove('hidden');
-                else document.getElementById('admin-qr-edit-box').classList.add('hidden');
-            }
-        }
+        function updateAdminUI() { toggleModal('admin-bar', isAdmin); }
 
         function openAddProductModal() {
-            document.getElementById('modal-title').innerText = "إضافة حذاء جديد";
+            document.getElementById('modal-title').innerText = "إضافة حذاء جديد بالسحابة";
             document.getElementById('product-form').reset();
             document.getElementById('prod-id').value = "";
-            document.getElementById('prod-extra-images').value = "";
             toggleModal('product-modal', true);
         }
 
         function openEditProductModal(id) {
-            const p = productsData.find(prod => prod.id === id);
+            const p = productsData.find(prod => prod.id == id);
             if (!p) return;
-            document.getElementById('modal-title').innerText = "تعديل الحذاء والصور والمخزون";
+            document.getElementById('modal-title').innerText = "تعديل الحذاء بالنظام السحابي";
             document.getElementById('prod-id').value = p.id;
             document.getElementById('prod-name').value = p.name;
             document.getElementById('prod-category').value = p.category || "رجالي";
             document.getElementById('prod-condition').value = p.condition || "جديد بالتيكت NWT";
             document.getElementById('prod-brand').value = p.brand;
             document.getElementById('prod-price').value = p.price;
-            document.getElementById('prod-sizes').value = p.sizes.join(', ');
+            document.getElementById('prod-sizes').value = p.sizes ? p.sizes.join(', ') : '';
             document.getElementById('prod-stock').value = p.stock || 1;
             document.getElementById('prod-sold').value = p.sold || 0;
             document.getElementById('prod-image').value = p.image;
-            document.getElementById('prod-extra-images').value = p.extraImages ? p.extraImages.join(', ') : "";
+            document.getElementById('prod-extra-images').value = p.extraImages ? p.extraImages.join(', ') : '';
             toggleModal('product-modal', true);
         }
 
@@ -633,14 +596,13 @@
 
         function handleSaveProduct(e) {
             e.preventDefault();
-            const id = document.getElementById('prod-id').value;
+            const id = document.getElementById('prod-id').value || 'prod_' + Date.now();
             const sizesArr = document.getElementById('prod-sizes').value.split(',').map(s => parseFloat(s.trim())).filter(n => !isNaN(n));
-            
             const extraRaw = document.getElementById('prod-extra-images').value;
             const extraImagesArr = extraRaw ? extraRaw.split(/[\s,]+/).filter(url => url.startsWith('http')) : [];
 
             const newProd = {
-                id: id ? parseInt(id) : Date.now(),
+                id: id,
                 name: document.getElementById('prod-name').value,
                 category: document.getElementById('prod-category').value,
                 condition: document.getElementById('prod-condition').value,
@@ -653,44 +615,20 @@
                 extraImages: extraImagesArr
             };
 
-            if (id) productsData = productsData.map(p => p.id === parseInt(id) ? newProd : p);
-            else productsData.unshift(newProd);
-
-            localStorage.setItem('janoudi_catalog_products', JSON.stringify(productsData));
-            closeProductModal();
-            updateDynamicSizes();
-            applyFilters();
-            alert('تم حفظ الحذاء بنجاح وتحديث المتجر أوتوماتيكياً!');
+            db.ref('products/' + id).set(newProd, (error) => {
+                if(!error) {
+                    closeProductModal();
+                    alert('تم حفظ الحذاء على السحابة بنجاح وظهر لكل الزبائن فوراً!');
+                } else {
+                    alert('حدث خطأ أثناء الحفظ بالسحابة!');
+                }
+            });
         }
 
         function deleteProduct(id) {
-            if (confirm("هل أنت تأكد من الحذف؟")) {
-                productsData = productsData.filter(p => p.id !== id);
-                localStorage.setItem('janoudi_catalog_products', JSON.stringify(productsData));
-                updateDynamicSizes();
-                applyFilters();
+            if (confirm("هل أنت تأكد من الحذف النهائي من السحابة؟")) {
+                db.ref('products/' + id).remove();
             }
-        }
-
-        function openChangePasswordModal() { toggleModal('change-pass-modal', true); }
-        function closeChangePasswordModal() { toggleModal('change-pass-modal', false); }
-        function saveNewPassword() {
-            const newP = document.getElementById('new-pass-input').value;
-            if (newP) {
-                adminPass = newP;
-                localStorage.setItem('janoudi_admin_pass', newP);
-                closeChangePasswordModal();
-                alert('تم تغيير كلمة السر بنجاح!');
-            }
-        }
-
-        function saveShamCashQR() {
-            shamCashQR = document.getElementById('edit-qr-url').value;
-            shamCashAccount = document.getElementById('edit-account-num').value;
-            localStorage.setItem('janoudi_shamcash_qr', shamCashQR);
-            localStorage.setItem('janoudi_shamcash_acc', shamCashAccount);
-            setupShamCashData();
-            alert('تم حفظ كيو آر الشام كاش!');
         }
     </script>
 </body>
